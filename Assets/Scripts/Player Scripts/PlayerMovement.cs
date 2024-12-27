@@ -196,5 +196,7 @@ public struct FrameInput
 
         public event Action Jumped;
         public Vector2 FrameInput { get; }
+
+        public event Action Shot;
     }
 
