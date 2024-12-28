@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour
     public Bullet dummyBullet;
     public float timeSinceLastShot;
     public Bullet.ShotType shotType;
+    public Vector3 direction;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +25,9 @@ public class Shooter : MonoBehaviour
     void Update()
     {
         timeSinceLastShot += Time.deltaTime;
+
+        if (Input.GetAxis("Horizontal") != 0)
+            direction = Input.GetAxis("Horizontal") < 0 ? Vector3.left : Vector3.right;
     }
 
 
@@ -46,15 +50,8 @@ public class Shooter : MonoBehaviour
     void InitBullet(Bullet bullet)
     {
         // This is stupid
-        bullet.direction = Vector3.right;
-
-        if (player.transform.localScale.x < 0)
-        {
-            bullet.direction = Vector3.left;
-        }
-
         bullet.shotType = this.shotType;
-        bullet.velocity = bullet.direction * bullet.bulletSpeed;
+        bullet.velocity = direction * bullet.bulletSpeed;
         Debug.Log(bullet.velocity);
     }
 
