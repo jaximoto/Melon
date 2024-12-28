@@ -34,12 +34,13 @@ public class Shooter : MonoBehaviour
         // TODO: swap between shot types based on some button
     }
 
-    void Switch()
+    void Switch(Mode currMode)
     {
         if (this.shotType == Bullet.ShotType.ICE_SHOT)
             this.shotType = Bullet.ShotType.FIRE_SHOT;
         else
             this.shotType = Bullet.ShotType.ICE_SHOT;
+       
     }
 
     void Shot()

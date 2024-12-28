@@ -1,6 +1,11 @@
 using System;
 using UnityEngine;
 
+public enum Mode
+{
+    ICE_MODE,
+    FIRE_MODE
+};
 public class PlayerMovement : MonoBehaviour, IPlayerController
 {
 
@@ -11,11 +16,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     private Vector2 _frameVelocity;
     private bool _cachedQueryStartInColliders;
 
-    public enum Mode
-    {
-        ICE_MODE,
-        FIRE_MODE
-    };
+   
     public Mode mode;
 
     #region Interface
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     public event Action JumpApex;
     public event Action Falling;
     public event Action Shot;
-    public event Action Switch;
+    public event Action<Mode> Switch;
     #endregion
 
     private float _time;
@@ -98,7 +99,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
             mode = Mode.FIRE_MODE;
         else
             mode = Mode.ICE_MODE;
-        Switch?.Invoke();
+        Switch?.Invoke(mode);
     }
 
     #endregion
@@ -256,6 +257,6 @@ public struct FrameInput
         public Vector2 FrameInput { get; }
 
         public event Action Shot;
-        public event Action Switch;
+        public event Action<Mode> Switch;
     }
 
