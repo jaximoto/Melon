@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _time += Time.deltaTime;
         GatherInput();
+        HandleShot();
     }
     private void GatherInput()
     {
@@ -64,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
         HandleDirection();
         HandleGravity();
-        HandleShot();
 
         ApplyMovement();
     }
@@ -140,8 +140,15 @@ public class PlayerMovement : MonoBehaviour
         Jumped?.Invoke();
     }
 
+
+    #endregion
+
+    #region Shot
+
     private void HandleShot()
     {
+        Debug.Log("Now in HandleShot");
+        Debug.Log(_frameInput.ShotHeld);
         if (_frameInput.ShotHeld)
             Shot?.Invoke();
         else
