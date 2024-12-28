@@ -19,6 +19,7 @@ public class Shooter : MonoBehaviour
         player.Shot += Shot;
         player.Switch += Switch;
         timeSinceLastShot = float.PositiveInfinity;
+        direction = Vector3.right;
     }
 
 
