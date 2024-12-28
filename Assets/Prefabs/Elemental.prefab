@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 2.807528, y: 0.38842386, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7094851422270156236}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5795900950803183265
@@ -102,17 +103,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  firingPoint: {fileID: 0}
+  firingPoint: {fileID: 7316919812366059028}
   fireRate: 0
   dummyBullet: {fileID: 0}
   timeSinceLastShot: 0
-  shotType: 0
+  shotType: 1
   direction: {x: 0, y: 0, z: 0}
   redBulletSprite: {fileID: 0}
   blueBulletSprite: {fileID: 0}
   moveSpeed: 0
   health: 0
-  shotDirection: {x: 0, y: 0, z: 0}
   myState: 0
   redElemental: {fileID: 0}
   blueElemental: {fileID: 0}
@@ -143,3 +143,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &7316919812366059028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7094851422270156236}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7094851422270156236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316919812366059028}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.483, y: -0.206, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8097340986470273926}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
