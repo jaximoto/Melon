@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 4761122941863853830}
-  _iceAnim: {fileID: 0}
-  _fireAnim: {fileID: 0}
+  _iceAnim: {fileID: 9100000, guid: 2d7e687acbc07754a9ad58c43c791cfc, type: 2}
+  _fireAnim: {fileID: 22100000, guid: 28efcd5e30cc62b4f85ff74675362164, type: 2}
   _iceSprite: {fileID: -3502898532032313657, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   _fireSprite: {fileID: 3623205961078866214, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   _sprite: {fileID: 8606915121388450887}
