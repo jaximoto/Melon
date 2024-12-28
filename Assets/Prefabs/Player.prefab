@@ -51,6 +51,8 @@ MonoBehaviour:
   timeSinceLastShot: 0
   shotType: 0
   direction: {x: 0, y: 0, z: 0}
+  redBulletSprite: {fileID: 6900257943375266184, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
+  blueBulletSprite: {fileID: -9018305730507487037, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
 --- !u!1 &897222398618208565
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 4761122941863853830}
+  _iceAnim: {fileID: 0}
+  _fireAnim: {fileID: 0}
+  _iceSprite: {fileID: -3502898532032313657, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
+  _fireSprite: {fileID: 3623205961078866214, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   _sprite: {fileID: 8606915121388450887}
 --- !u!1 &1187948166182942284
 GameObject:

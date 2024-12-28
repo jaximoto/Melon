@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
 {
@@ -6,8 +7,9 @@ public class Bullet : MonoBehaviour
     public float bulletLife;
     public float lifeTime ;
     public Vector3 direction;
-
     public Vector3 velocity;
+
+    public SpriteRenderer s;
 
     public enum ShotType
     {
@@ -20,6 +22,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         // Set death timer for lifeTime seconds
+        s = gameObject.GetComponent<SpriteRenderer>();
         Destroy(gameObject, lifeTime);
     }
 
@@ -29,16 +32,26 @@ public class Bullet : MonoBehaviour
         // Move in direction
         transform.Translate(velocity * Time.deltaTime);
 
-        // TODO: Check for collision, act based on shot type
-        CheckAndHandleCollision();
-        
         // TODO: Unload if bullet is off screen, right now it is time based which works but not best
 
     }
 
 
-    void CheckAndHandleCollision()
+    void OnCollisionEnter2D(Collision2D col)
     {
+        CheckAndHandleCollision(col.gameObject);
+    }
+
+
+    void CheckAndHandleCollision(GameObject obj)
+    {
+        IShootable i;
+        if (obj.TryGetComponent<IShootable>(out i))
+        {
+            i.OnShat(this);
+            Destroy(gameObject);
+        }
+
     }
     
 }
