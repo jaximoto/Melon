@@ -17,6 +17,7 @@ public class Shooter : MonoBehaviour
     void Start()
     {
         player.Shot += Shot;
+        player.Switch += Switch;
         timeSinceLastShot = float.PositiveInfinity;
     }
 
@@ -32,6 +33,13 @@ public class Shooter : MonoBehaviour
         // TODO: swap between shot types based on some button
     }
 
+    void Switch()
+    {
+        if (this.shotType == Bullet.ShotType.ICE_SHOT)
+            this.shotType = Bullet.ShotType.FIRE_SHOT;
+        else
+            this.shotType = Bullet.ShotType.ICE_SHOT;
+    }
 
     void Shot()
     {
@@ -47,7 +55,6 @@ public class Shooter : MonoBehaviour
             timeSinceLastShot = 0.0f;
         }
     }
-
 
     void InitBullet(Bullet bullet)
     {

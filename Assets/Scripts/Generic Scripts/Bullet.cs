@@ -29,10 +29,16 @@ public class Bullet : MonoBehaviour
         // Move in direction
         transform.Translate(velocity * Time.deltaTime);
 
-        // TODO: Check for collision?
+        // TODO: Check for collision, act based on shot type
+        CheckAndHandleCollision();
         
         // TODO: Unload if bullet is off screen, right now it is time based which works but not best
 
+    }
+
+
+    void CheckAndHandleCollision()
+    {
     }
     
 }
