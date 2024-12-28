@@ -11,6 +11,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     private Vector2 _frameVelocity;
     private bool _cachedQueryStartInColliders;
 
+    public enum Mode
+    {
+        ICE_MODE,
+        FIRE_MODE
+    };
+    public Mode mode;
+
     #region Interface
     public Vector2 FrameInput => _frameInput.Move;
     public event Action<bool, float> GroundedChanged;
@@ -18,6 +25,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     public event Action JumpApex;
     public event Action Falling;
     public event Action Shot;
+    public event Action Switch;
     #endregion
 
     private float _time;
@@ -28,6 +36,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
         _rb = GetComponent<Rigidbody2D>();
         _col = GetComponent<CapsuleCollider2D>();
         _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
+
+        mode = Mode.ICE_MODE;
     }
 
     // Update is called once per frame
@@ -35,12 +45,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     {
         _time += Time.deltaTime;
         GatherInput();
+        HandleSwitch();
         HandleShot();
     }
     private void GatherInput()
     {
         _frameInput = new FrameInput
         {
+            SwitchHeld = Input.GetKeyDown(KeyCode.Z),
             ShotHeld = Input.GetKeyDown(KeyCode.X),
             JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
             JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
@@ -70,6 +82,26 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
 
         ApplyMovement();
     }
+
+    # region Switch
+
+    private void HandleSwitch()
+    {
+        if (_frameInput.SwitchHeld)
+            ExecuteSwitch();
+    }
+
+    private void ExecuteSwitch()
+    {
+        Debug.Log("Executing switch");
+        if (mode==Mode.ICE_MODE)
+            mode = Mode.FIRE_MODE;
+        else
+            mode = Mode.ICE_MODE;
+        Switch?.Invoke();
+    }
+
+    #endregion
 
     #region Collisions
 
@@ -149,8 +181,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
 
     private void HandleShot()
     {
-        Debug.Log("Now in HandleShot");
-        Debug.Log(_frameInput.ShotHeld);
         if (_frameInput.ShotHeld)
             Shot?.Invoke();
         else
@@ -189,7 +219,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
             var inAirGravity = _stats.FallAcceleration;
             if (_endedJumpEarly && _frameVelocity.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
             _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-            Falling.Invoke();
+            Falling?.Invoke();
         }
     }
 
@@ -206,6 +236,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
 }
 public struct FrameInput
     {
+        public bool SwitchHeld;
         public bool ShotHeld;
         public bool JumpDown;
         public bool JumpHeld;
@@ -224,5 +255,6 @@ public struct FrameInput
         public Vector2 FrameInput { get; }
 
         public event Action Shot;
+        public event Action Switch;
     }
 

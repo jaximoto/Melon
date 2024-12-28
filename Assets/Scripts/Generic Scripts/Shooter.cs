@@ -28,6 +28,8 @@ public class Shooter : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0)
             direction = Input.GetAxis("Horizontal") < 0 ? Vector3.left : Vector3.right;
+
+        // TODO: swap between shot types based on some button
     }
 
 
