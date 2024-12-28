@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _frameInput = new FrameInput
         {
+            ShotHeld = Input.GetKeyDown(KeyCode.X),
             JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
             JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
             Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
         HandleDirection();
         HandleGravity();
+        HandleShot();
 
         ApplyMovement();
     }
@@ -138,6 +140,14 @@ public class PlayerMovement : MonoBehaviour
         Jumped?.Invoke();
     }
 
+    private void HandleShot()
+    {
+        if (_frameInput.ShotHeld)
+            Shot?.Invoke();
+        else
+            return;
+    }
+
     #endregion
 
     #region Horizontal
@@ -186,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
 }
 public struct FrameInput
     {
+        public bool ShotHeld;
         public bool JumpDown;
         public bool JumpHeld;
         public Vector2 Move;
