@@ -73,9 +73,11 @@ public class Platform : MonoBehaviour, IShootable
 
     public void Melt()
     {
-        // Make it red?
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
         s.sprite = redTileSprite;
+
+        //TODO: Animation
+        
     }
 
 
