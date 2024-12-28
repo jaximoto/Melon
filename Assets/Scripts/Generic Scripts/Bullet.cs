@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
     public AnimatorOverrideController _fireAnim;
 
     public int layer;
+    public LayerMask layerMask;
 
 
     private void Awake()
@@ -43,6 +44,10 @@ public class Bullet : MonoBehaviour
             _anim.runtimeAnimatorController = _iceAnim;
         else
             _anim.runtimeAnimatorController = _fireAnim;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.excludeLayers = layerMask;
+        //gameObject..ExcludeLayers = layerMask;
     }
 
 

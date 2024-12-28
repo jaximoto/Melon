@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Unity.Mathematics.math;
 
 public class Shooter : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class Shooter : MonoBehaviour
     };
     public DefaultDirection defaultDirection;
 
+    public enum ShooterType
+    {
+        PLAYER,
+        ENEMY
+    };
+    public ShooterType shooterType;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -88,12 +95,23 @@ public class Shooter : MonoBehaviour
         bullet.velocity = direction * bullet.bulletSpeed;
         bullet.s.sprite = (this.shotType == Bullet.ShotType.ICE_SHOT) ? blueBulletSprite : redBulletSprite;
 
-        bullet.gameObject.layer = gameObject.layer;
+        //bullet.gameObject.layer = gameObject.layer;
 
         // By default, all bullets are facing left, so flip them if shooter direction is right
         if (direction==Vector3.right)
         {
             bullet.s.flipX = !bullet.s.flipX;
+        }
+
+        if (shooterType==ShooterType.PLAYER)
+        {
+            bullet.layerMask = LayerMask.GetMask("EnemyBullet", "Player");
+            bullet.gameObject.layer = (int)log2(LayerMask.GetMask("PlayerBullet"));
+        }
+        else if (shooterType==ShooterType.ENEMY)
+        {
+            bullet.layerMask = LayerMask.GetMask("PlayerBullet", "Enemy");
+            bullet.gameObject.layer = (int)log2(LayerMask.GetMask("EnemyBullet"));
         }
     }
 
