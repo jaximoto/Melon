@@ -32,7 +32,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Awake()
     {
-        _source = GetComponent<AudioSource>();
+        //_source = GetComponent<AudioSource>();
         _player = GetComponentInParent<IPlayerController>();
     }
 
@@ -41,7 +41,7 @@ public class PlayerAnimator : MonoBehaviour
         _player.Jumped += OnJumped;
         _player.GroundedChanged += OnGroundedChanged;
 
-        _moveParticles.Play();
+        //_moveParticles.Play();
     }
 
     private void OnDisable()
@@ -56,13 +56,13 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (_player == null) return;
 
-        DetectGroundColor();
+        //DetectGroundColor();
 
         HandleSpriteFlip();
 
-        HandleIdleSpeed();
+        //HandleIdleSpeed();
 
-        HandleCharacterTilt();
+        //HandleCharacterTilt();
     }
 
     private void HandleSpriteFlip()
