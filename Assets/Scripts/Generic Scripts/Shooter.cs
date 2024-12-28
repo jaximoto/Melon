@@ -88,6 +88,8 @@ public class Shooter : MonoBehaviour
         bullet.velocity = direction * bullet.bulletSpeed;
         bullet.s.sprite = (this.shotType == Bullet.ShotType.ICE_SHOT) ? blueBulletSprite : redBulletSprite;
 
+        bullet.gameObject.layer = gameObject.layer;
+
         // By default, all bullets are facing left, so flip them if shooter direction is right
         if (direction==Vector3.right)
         {

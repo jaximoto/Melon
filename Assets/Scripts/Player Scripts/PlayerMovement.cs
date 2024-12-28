@@ -6,7 +6,7 @@ public enum Mode
     ICE_MODE,
     FIRE_MODE
 };
-public class PlayerMovement : MonoBehaviour, IPlayerController
+public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 {
 
     [SerializeField] private PlayerScriptableStats _stats;
@@ -236,28 +236,37 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
         if (_stats == null) Debug.LogWarning("Please assign a ScriptableStats asset to the Player Controller's Stats slot", this);
     }
 #endif
+
+    public void OnShat(Bullet b)
+    {
+
+        //TODO: Take damage
+        
+    }
+
 }
+
 public struct FrameInput
-    {
-        public bool SwitchHeld;
-        public bool ShotHeld;
-        public bool JumpDown;
-        public bool JumpHeld;
-        public Vector2 Move;
-    }
+{
+    public bool SwitchHeld;
+    public bool ShotHeld;
+    public bool JumpDown;
+    public bool JumpHeld;
+    public Vector2 Move;
+}
 
-    public interface IPlayerController
-    {
-        public event Action<bool, float> GroundedChanged;
+public interface IPlayerController
+{
+    public event Action<bool, float> GroundedChanged;
 
-        public event Action Jumped;
+    public event Action Jumped;
 
-        public event Action JumpApex;
+    public event Action JumpApex;
 
-        public event Action Falling;
-        public Vector2 FrameInput { get; }
+    public event Action Falling;
+    public Vector2 FrameInput { get; }
 
-        public event Action Shot;
-        public event Action<Mode> Switch;
-    }
+    public event Action Shot;
+    public event Action<Mode> Switch;
+}
 

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -22,6 +23,8 @@ public class Bullet : MonoBehaviour
     private Animator _anim;
     public RuntimeAnimatorController _iceAnim;
     public AnimatorOverrideController _fireAnim;
+
+    public int layer;
 
 
     private void Awake()
