@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8372023690925558697}
   - component: {fileID: -6474117092628023002}
   - component: {fileID: -7264227685303303849}
+  - component: {fileID: 3969160835348069111}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.00042616576, y: -0.27944887, z: 0}
-  m_LocalScale: {x: 2.6, y: 3.03, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -831426100493663744, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.66999996, y: 0.22666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,6 +110,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   s: {fileID: 5225703981215742755}
   shotType: 0
+  _iceAnim: {fileID: 9100000, guid: 4d36936f32ea3794b82b46b1b30b646b, type: 2}
+  _fireAnim: {fileID: 22100000, guid: 526a92e7c7937e04c86edbef35b000bf, type: 2}
 --- !u!50 &-6474117092628023002
 Rigidbody2D:
   serializedVersion: 5
@@ -170,15 +173,37 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0014236271, y: 0.00014666468}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.26333332, y: 0.3133333}
+    newSize: {x: 0.66999996, y: 0.22666667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.45502627, y: 0.3543278}
   m_EdgeRadius: 0
+--- !u!95 &3969160835348069111
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856189141839049135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d36936f32ea3794b82b46b1b30b646b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
