@@ -218,8 +218,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
         {
             var inAirGravity = _stats.FallAcceleration;
             if (_endedJumpEarly && _frameVelocity.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
+            else if(_frameVelocity.y < 0) Falling?.Invoke();
             _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-            Falling?.Invoke();
+            
         }
     }
 
