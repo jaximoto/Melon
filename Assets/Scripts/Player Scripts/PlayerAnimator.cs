@@ -1,4 +1,5 @@
-using UnityEditor.Animations;
+
+
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerAnimator : MonoBehaviour
     private Animator _anim;
 
     [SerializeField]
-    private AnimatorController _iceAnim;
+    private RuntimeAnimatorController _iceAnim;
 
     [SerializeField]
     private AnimatorOverrideController _fireAnim;
