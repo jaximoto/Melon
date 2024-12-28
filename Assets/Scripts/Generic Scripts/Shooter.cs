@@ -18,8 +18,14 @@ public class Shooter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player.Shot += Shot;
-        player.Switch += Switch;
+        Debug.Log(player);
+        if(player != null)
+        {
+            
+            player.Shot += Shot;
+            player.Switch += Switch;
+        }
+        
         timeSinceLastShot = float.PositiveInfinity;
         direction = Vector3.right;
     }
@@ -47,7 +53,7 @@ public class Shooter : MonoBehaviour
        
     }
 
-    void Shot()
+    public virtual void Shot()
     {
         Vector3 offset = direction * 0.75f;
         // Has it been enough time since the last shot
