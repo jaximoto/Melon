@@ -7,9 +7,11 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]
     private Animator _anim;
 
+    [SerializeField] private Sprite _iceSprite;
+    [SerializeField] private Sprite _fireSprite;
+
     [SerializeField] private SpriteRenderer _sprite;
 
-    
     private IPlayerController _player;
     private bool _grounded;
     
@@ -26,6 +28,7 @@ public class PlayerAnimator : MonoBehaviour
         _player.Jumped += OnJumped;
         _player.GroundedChanged += OnGroundedChanged;
         _player.Falling += OnFall;
+        _player.Switch += OnSwitch;
 
         
     }
@@ -59,7 +62,14 @@ public class PlayerAnimator : MonoBehaviour
 
     
 
-    
+    private void OnSwitch(Mode mode)
+    {
+        Debug.Log("Switch was called and mode is:" + mode);
+        if (mode == Mode.FIRE_MODE) 
+            _sprite.sprite = _fireSprite;
+        else
+            _sprite.sprite = _iceSprite;
+    }
 
     private void OnWalk()
     {
@@ -118,6 +128,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private static readonly int GroundedKey = Animator.StringToHash("Grounded");
     private static readonly int JumpKey = Animator.StringToHash("Jump");
+
+    // Change walk key  it isnt found TODOOO
     private static readonly int WalkKey = Animator.StringToHash("Walk");
     private static readonly int FallKey = Animator.StringToHash("AtApex");
 

@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
         else
             mode = Mode.ICE_MODE;
         Switch?.Invoke(mode);
+        Debug.Log("Invoked switch");
     }
 
     #endregion
