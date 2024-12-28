@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     public Vector2 FrameInput => _frameInput.Move;
     public event Action<bool, float> GroundedChanged;
     public event Action Jumped;
+    public event Action JumpApex;
+    public event Action Falling;
     public event Action Shot;
     #endregion
 
@@ -187,6 +189,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
             var inAirGravity = _stats.FallAcceleration;
             if (_endedJumpEarly && _frameVelocity.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
             _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+            Falling.Invoke();
         }
     }
 
@@ -214,6 +217,10 @@ public struct FrameInput
         public event Action<bool, float> GroundedChanged;
 
         public event Action Jumped;
+
+        public event Action JumpApex;
+
+        public event Action Falling;
         public Vector2 FrameInput { get; }
 
         public event Action Shot;
