@@ -14,20 +14,29 @@ public class Shooter : MonoBehaviour
 
     public Sprite redBulletSprite, blueBulletSprite;
 
+    public enum DefaultDirection
+    {
+        RIGHT,
+        LEFT
+    };
+    public DefaultDirection defaultDirection;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log(player);
         if(player != null)
         {
-            
             player.Shot += Shot;
             player.Switch += Switch;
         }
         
         timeSinceLastShot = float.PositiveInfinity;
-        direction = Vector3.right;
+        
+        if (defaultDirection==DefaultDirection.RIGHT)
+            direction = Vector3.right;
+        else
+            direction = Vector3.left;
     }
 
 
@@ -40,6 +49,7 @@ public class Shooter : MonoBehaviour
             direction = Input.GetAxis("Horizontal") < 0 ? Vector3.left : Vector3.right;
     }
 
+
     void Switch(Mode currMode)
     {
         if (this.shotType == Bullet.ShotType.ICE_SHOT)
@@ -50,8 +60,8 @@ public class Shooter : MonoBehaviour
         {
             this.shotType = Bullet.ShotType.ICE_SHOT;
         }
-       
     }
+
 
     public virtual void Shot()
     {
@@ -70,12 +80,19 @@ public class Shooter : MonoBehaviour
         }
     }
 
+
     void InitBullet(Bullet bullet)
     {
         // This is stupid
         bullet.shotType = this.shotType;
         bullet.velocity = direction * bullet.bulletSpeed;
         bullet.s.sprite = (this.shotType == Bullet.ShotType.ICE_SHOT) ? blueBulletSprite : redBulletSprite;
+
+        // By default, all bullets are facing left, so flip them if shooter direction is right
+        if (direction==Vector3.right)
+        {
+            bullet.s.flipX = !bullet.s.flipX;
+        }
     }
 
 }

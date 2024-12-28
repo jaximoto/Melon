@@ -22,25 +22,22 @@ public class Bullet : MonoBehaviour
     private Animator _anim;
     public RuntimeAnimatorController _iceAnim;
     public AnimatorOverrideController _fireAnim;
+
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();
-
-       
-        
     }
+
 
     void Start()
     {
         // Set death timer for lifeTime seconds
         s = gameObject.GetComponent<SpriteRenderer>();
         Destroy(gameObject, lifeTime);
+
         if (shotType == ShotType.ICE_SHOT)
-        {
             _anim.runtimeAnimatorController = _iceAnim;
-        }
-
-
         else
             _anim.runtimeAnimatorController = _fireAnim;
     }
