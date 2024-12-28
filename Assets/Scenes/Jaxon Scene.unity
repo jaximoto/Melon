@@ -659,14 +659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 1889513529}
   _sprite: {fileID: 1889513528}
-  _maxIdleSpeed: 2.527
-  _maxTilt: 5
-  _tiltSpeed: 20
-  _jumpParticles: {fileID: 0}
-  _launchParticles: {fileID: 0}
-  _moveParticles: {fileID: 0}
-  _landParticles: {fileID: 0}
-  _footsteps: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

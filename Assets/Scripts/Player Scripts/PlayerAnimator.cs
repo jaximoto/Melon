@@ -88,6 +88,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         
         _anim.ResetTrigger(FallKey);
+        _anim.ResetTrigger(JumpKey);
         _grounded = grounded;
         //_anim.SetTrigger(GroundedKey);
         
@@ -110,24 +111,14 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
 
-    private void DetectGroundColor()
-    {
-        var hit = Physics2D.Raycast(transform.position, Vector3.down, 2);
+  
 
-        if (!hit || hit.collider.isTrigger || !hit.transform.TryGetComponent(out SpriteRenderer r)) return;
-        var color = r.color;
-       
-    }
-
-    private void SetColor(ParticleSystem ps)
-    {
-        var main = ps.main;
-       
-    }
+   
+    
 
     private static readonly int GroundedKey = Animator.StringToHash("Grounded");
     private static readonly int JumpKey = Animator.StringToHash("Jump");
     private static readonly int WalkKey = Animator.StringToHash("Walk");
-    private static readonly int FallKey = Animator.StringToHash("Fall");
+    private static readonly int FallKey = Animator.StringToHash("AtApex");
 
 }
