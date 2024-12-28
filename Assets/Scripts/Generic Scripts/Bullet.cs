@@ -9,11 +9,13 @@ public class Bullet : MonoBehaviour
 
     public Vector3 velocity;
 
-    public enum shotType
+    public enum ShotType
     {
         ICE_SHOT,
         FIRE_SHOT
     }
+
+    public ShotType shotType;
 
     void Start()
     {

@@ -12,6 +12,7 @@ public class Shooter : MonoBehaviour
     public float fireRate;
     public Bullet dummyBullet;
     public float timeSinceLastShot;
+    public Bullet.ShotType shotType;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +50,7 @@ public class Shooter : MonoBehaviour
     {
         // This is stupid
         bullet.direction = player.gameObject.transform.forward;
+        bullet.shotType = this.shotType;
     }
 
 }
