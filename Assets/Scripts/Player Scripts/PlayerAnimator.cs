@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -6,6 +7,14 @@ public class PlayerAnimator : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private Animator _anim;
+
+    [SerializeField]
+    private AnimatorController _iceAnim;
+
+    [SerializeField]
+    private AnimatorOverrideController _fireAnim;
+
+
 
     [SerializeField] private Sprite _iceSprite;
     [SerializeField] private Sprite _fireSprite;
@@ -65,16 +74,26 @@ public class PlayerAnimator : MonoBehaviour
     private void OnSwitch(Mode mode)
     {
         Debug.Log("Switch was called and mode is:" + mode);
-        if (mode == Mode.FIRE_MODE) 
+        if (mode == Mode.FIRE_MODE)
+        {
             _sprite.sprite = _fireSprite;
+            _anim.runtimeAnimatorController = _fireAnim;
+            
+        }
+
         else
+        {
             _sprite.sprite = _iceSprite;
+            _anim.runtimeAnimatorController = _iceAnim;
+            
+        }
+            
     }
 
     private void OnWalk()
     {
         
-        _anim.SetTrigger(WalkKey);
+        //_anim.SetTrigger(WalkKey);
     }
     private void OnJumped()
     {
@@ -130,7 +149,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int JumpKey = Animator.StringToHash("Jump");
 
     // Change walk key  it isnt found TODOOO
-    private static readonly int WalkKey = Animator.StringToHash("Walk");
+    //private static readonly int WalkKey = Animator.StringToHash("Walk");
     private static readonly int FallKey = Animator.StringToHash("AtApex");
 
 }
