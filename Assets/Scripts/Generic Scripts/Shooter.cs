@@ -5,9 +5,6 @@ public class Shooter : MonoBehaviour
 
     public PlayerMovement player;
 
-    /**********************
-     * SHOOTING VARIABLES *
-     * ********************/
     public GameObject firingPoint;
     public float fireRate;
     public Bullet dummyBullet;
@@ -49,8 +46,16 @@ public class Shooter : MonoBehaviour
     void InitBullet(Bullet bullet)
     {
         // This is stupid
-        bullet.direction = player.gameObject.transform.forward;
+        bullet.direction = Vector3.right;
+
+        if (player.transform.localScale.x < 0)
+        {
+            bullet.direction = Vector3.left;
+        }
+
         bullet.shotType = this.shotType;
+        bullet.velocity = bullet.direction * bullet.bulletSpeed;
+        Debug.Log(bullet.velocity);
     }
 
 }

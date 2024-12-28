@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
     public float bulletLife;
-    public float lifeTime = 3f;
+    public float lifeTime ;
     public Vector3 direction;
 
     public Vector3 velocity;
@@ -19,8 +19,6 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        velocity = direction * bulletSpeed;
-
         // Set death timer for lifeTime seconds
         Destroy(gameObject, lifeTime);
     }
