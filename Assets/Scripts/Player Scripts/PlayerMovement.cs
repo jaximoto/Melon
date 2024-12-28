@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 FrameInput => _frameInput.Move;
     public event Action<bool, float> GroundedChanged;
     public event Action Jumped;
+    public event Action Shot;
     #endregion
 
     private float _time;
