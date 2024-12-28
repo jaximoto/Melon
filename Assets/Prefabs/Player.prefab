@@ -54,6 +54,7 @@ MonoBehaviour:
   redBulletSprite: {fileID: 6900257943375266184, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   blueBulletSprite: {fileID: -9018305730507487037, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   defaultDirection: 0
+  shooterType: 0
 --- !u!1 &897222398618208565
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +274,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -294,7 +295,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
