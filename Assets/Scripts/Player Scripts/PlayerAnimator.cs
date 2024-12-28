@@ -34,12 +34,13 @@ public class PlayerAnimator : MonoBehaviour
     {
         //_source = GetComponent<AudioSource>();
         _player = GetComponentInParent<IPlayerController>();
+        if (_player == null) Debug.Log("Player is null for anim");
     }
 
     private void OnEnable()
     {
         _player.Jumped += OnJumped;
-        _player.GroundedChanged += OnGroundedChanged;
+        //_player.GroundedChanged += OnGroundedChanged;
 
         //_moveParticles.Play();
     }
@@ -47,9 +48,9 @@ public class PlayerAnimator : MonoBehaviour
     private void OnDisable()
     {
         _player.Jumped -= OnJumped;
-        _player.GroundedChanged -= OnGroundedChanged;
+        //_player.GroundedChanged -= OnGroundedChanged;
 
-        _moveParticles.Stop();
+        //_moveParticles.Stop();
     }
 
     private void Update()
@@ -67,7 +68,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleSpriteFlip()
     {
-        if (_player.FrameInput.x != 0) _sprite.flipX = _player.FrameInput.x < 0;
+        if (_player.FrameInput.x != 0) _sprite.flipX = _player.FrameInput.x > 0;
     }
 
     private void HandleIdleSpeed()
@@ -83,6 +84,10 @@ public class PlayerAnimator : MonoBehaviour
         _anim.transform.up = Vector3.RotateTowards(_anim.transform.up, runningTilt * Vector2.up, _tiltSpeed * Time.deltaTime, 0f);
     }
 
+    private void OnWalk()
+    {
+        _anim.SetTrigger(WalkKey);
+    }
     private void OnJumped()
     {
         _anim.SetTrigger(JumpKey);
@@ -138,5 +143,6 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int GroundedKey = Animator.StringToHash("Grounded");
     private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
     private static readonly int JumpKey = Animator.StringToHash("Jump");
-    
+    private static readonly int WalkKey = Animator.StringToHash("Walk");
+
 }
