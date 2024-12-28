@@ -62,6 +62,9 @@ public class PlayerAnimator : MonoBehaviour
         {
             OnWalk();
         }
+
+        else if (_grounded && _player.FrameInput.x == 0f)
+            _anim.ResetTrigger(WalkKey);
         
     }
 
@@ -94,12 +97,13 @@ public class PlayerAnimator : MonoBehaviour
     private void OnWalk()
     {
         
-        //_anim.SetTrigger(WalkKey);
+        _anim.SetTrigger(WalkKey);
     }
     private void OnJumped()
     {
         _anim.SetTrigger(JumpKey);
         _anim.ResetTrigger(GroundedKey);
+        _anim.ResetTrigger(WalkKey);
 
 
         if (_grounded) // Avoid coyote
@@ -150,7 +154,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int JumpKey = Animator.StringToHash("Jump");
 
     // Change walk key  it isnt found TODOOO
-    //private static readonly int WalkKey = Animator.StringToHash("Walk");
+    private static readonly int WalkKey = Animator.StringToHash("Moving");
     private static readonly int FallKey = Animator.StringToHash("AtApex");
 
 }
