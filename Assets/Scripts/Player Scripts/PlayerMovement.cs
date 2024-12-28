@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPlayerController
 {
 
     [SerializeField] private PlayerScriptableStats _stats;
@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 FrameInput => _frameInput.Move;
     public event Action<bool, float> GroundedChanged;
     public event Action Jumped;
+    public event Action JumpApex;
+    public event Action Falling;
     public event Action Shot;
     #endregion
 
@@ -187,6 +189,7 @@ public class PlayerMovement : MonoBehaviour
             var inAirGravity = _stats.FallAcceleration;
             if (_endedJumpEarly && _frameVelocity.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
             _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+            Falling.Invoke();
         }
     }
 
@@ -214,6 +217,10 @@ public struct FrameInput
         public event Action<bool, float> GroundedChanged;
 
         public event Action Jumped;
+
+        public event Action JumpApex;
+
+        public event Action Falling;
         public Vector2 FrameInput { get; }
 
         public event Action Shot;

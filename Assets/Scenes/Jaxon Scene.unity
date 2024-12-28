@@ -581,7 +581,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -3502898532032313657, guid: 617a400a7ddd2e94f8acc49c3b1e1244, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.1666666, y: 1.7333332}
@@ -621,6 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2028129722}
+  - component: {fileID: 2028129723}
   m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
@@ -644,6 +645,28 @@ Transform:
   - {fileID: 1889513527}
   m_Father: {fileID: 286654412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028129723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028129721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f493720144cba61459433d70e7603ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 1889513529}
+  _sprite: {fileID: 1889513528}
+  _maxIdleSpeed: 2.527
+  _maxTilt: 5
+  _tiltSpeed: 20
+  _jumpParticles: {fileID: 0}
+  _launchParticles: {fileID: 0}
+  _moveParticles: {fileID: 0}
+  _landParticles: {fileID: 0}
+  _footsteps: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
