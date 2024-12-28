@@ -476,12 +476,12 @@ TextureImporter:
       name: Environment_11
       rect:
         serializedVersion: 2
-        x: 960
-        y: 765
+        x: 955
+        y: 768
         width: 184
-        height: 78
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -502,8 +502,8 @@ TextureImporter:
         y: 768
         width: 184
         height: 112
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -611,9 +611,9 @@ TextureImporter:
         x: 956
         y: 645
         width: 184
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -630,10 +630,10 @@ TextureImporter:
       name: Environment_18
       rect:
         serializedVersion: 2
-        x: 1198
+        x: 1199
         y: 652
-        width: 199
-        height: 82
+        width: 197
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1089,7 +1089,13 @@ TextureImporter:
       Environment_34: -7963306881671151232
       Environment_35: -8895750759828453358
       Environment_36: 1493563432
+      Environment_37: 1932351539
+      Environment_38: 1825308941
+      Environment_39: -341790320
       Environment_4: -4500993874483076431
+      Environment_40: 184557970
+      Environment_41: 1797363833
+      Environment_42: 1425460261
       Environment_5: 3411122762858479303
       Environment_6: -6081611462039590206
       Environment_7: -5508807443964245338
