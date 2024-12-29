@@ -27,6 +27,7 @@ public class Enemy : Shooter, IShootable
 
     }
 
+
     public void LateUpdate()
     {
         timeSinceLastShot += Time.deltaTime;

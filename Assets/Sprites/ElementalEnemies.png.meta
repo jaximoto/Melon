@@ -1,34 +1,49 @@
 fileFormatVersion: 2
-guid: 0eba5cb4eb3c74e9d8580745ceb61dae
+guid: 30c43acf4e9d9e24997aed11a5d600f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5432380033335079387
-    second: Environment__0
+      213: 3124344775797177407
+    second: ElementalEnemies_0
   - first:
-      213: -3773983539396217425
-    second: Environment__1
+      213: 8581551655264088276
+    second: ElementalEnemies_1
   - first:
-      213: 4436701816203649596
-    second: Environment__2
+      213: -5466192237729509825
+    second: ElementalEnemies_2
   - first:
-      213: -3594165537485939006
-    second: Environment__3
+      213: -4038913626040152465
+    second: ElementalEnemies_3
   - first:
-      213: -6500048923197880334
-    second: Environment__4
+      213: 4076207014812407226
+    second: ElementalEnemies_4
   - first:
-      213: 2456873680012293988
-    second: Environment__5
+      213: 7330042022157898152
+    second: ElementalEnemies_5
   - first:
-      213: 7907328008759874486
-    second: Environment__6
+      213: -5557321565799777404
+    second: ElementalEnemies_6
   - first:
-      213: -2550805456205504411
-    second: Environment__7
+      213: -6003164673536518373
+    second: ElementalEnemies_7
   - first:
-      213: 181747324633797227
-    second: Environment__8
+      213: -4405703764952059526
+    second: ElementalEnemies_8
+  - first:
+      213: -1543632328965276532
+    second: ElementalEnemies_9
+  - first:
+      213: -3602411623587200194
+    second: ElementalEnemies_10
+  - first:
+      213: 2047191436047431849
+    second: ElementalEnemies_11
+  - first:
+      213: 737057763922003592
+    second: ElementalEnemies_12
+  - first:
+      213: 8236645496286934765
+    second: ElementalEnemies_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,10 +87,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +123,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -121,7 +136,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -163,199 +178,287 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Environment__0
+      name: ElementalEnemies_0
       rect:
         serializedVersion: 2
-        x: 240
-        y: 196
-        width: 96
-        height: 133
+        x: 68
+        y: 720
+        width: 313
+        height: 244
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd1bcdbbbd0b36b40800000000000000
-      internalID: 5432380033335079387
+      spriteID: f3cfc352507eb5b20800000000000000
+      internalID: 3124344775797177407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__1
+      name: ElementalEnemies_2
       rect:
         serializedVersion: 2
-        x: 399
-        y: 193
-        width: 107
-        height: 137
+        x: 526
+        y: 733
+        width: 208
+        height: 258
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa5fd1267fd10abc0800000000000000
-      internalID: -3773983539396217425
+      spriteID: f3e8224fe1f2424b0800000000000000
+      internalID: -5466192237729509825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__2
+      name: ElementalEnemies_3
       rect:
         serializedVersion: 2
-        x: 460
-        y: 195
-        width: 6
-        height: 7
+        x: 58
+        y: 457
+        width: 212
+        height: 212
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3226219bc4529d30800000000000000
-      internalID: 4436701816203649596
+      spriteID: f6e4469c475e2f7c0800000000000000
+      internalID: -4038913626040152465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__3
+      name: ElementalEnemies_4
       rect:
         serializedVersion: 2
-        x: 104
-        y: 43
-        width: 110
-        height: 133
+        x: 538
+        y: 467
+        width: 164
+        height: 201
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ce13328c75fe1ec0800000000000000
-      internalID: -3594165537485939006
+      spriteID: ab559dceea8919830800000000000000
+      internalID: 4076207014812407226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__4
+      name: ElementalEnemies_5
       rect:
         serializedVersion: 2
-        x: 263
-        y: 40
-        width: 115
-        height: 137
+        x: 1188
+        y: 641
+        width: 101
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f7412e61ff2bc5a0800000000000000
-      internalID: -6500048923197880334
+      spriteID: 8a15867026a89b560800000000000000
+      internalID: 7330042022157898152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__5
+      name: ElementalEnemies_6
       rect:
         serializedVersion: 2
-        x: 324
-        y: 42
-        width: 6
-        height: 7
+        x: 1387
+        y: 622
+        width: 71
+        height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 467b32b4891981220800000000000000
-      internalID: 2456873680012293988
+      spriteID: 48bf2e7da7d60e2b0800000000000000
+      internalID: -5557321565799777404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__6
+      name: ElementalEnemies_7
       rect:
         serializedVersion: 2
-        x: 438
-        y: 39
-        width: 108
-        height: 133
+        x: 1210
+        y: 515
+        width: 58
+        height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b311acdde87cbd60800000000000000
-      internalID: 7907328008759874486
+      spriteID: b179ea9198970bca0800000000000000
+      internalID: -6003164673536518373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__7
+      name: ElementalEnemies_8
       rect:
         serializedVersion: 2
-        x: 597
-        y: 36
-        width: 114
-        height: 137
+        x: 1393
+        y: 503
+        width: 39
+        height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5602ebbc3f7b99cd0800000000000000
-      internalID: -2550805456205504411
+      spriteID: a717e68a4cbcbd2c0800000000000000
+      internalID: -4405703764952059526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Environment__8
+      name: ElementalEnemies_9
       rect:
         serializedVersion: 2
-        x: 658
-        y: 38
-        width: 6
-        height: 7
+        x: 1219
+        y: 436
+        width: 41
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b62dca39a32b58200800000000000000
-      internalID: 181747324633797227
+      spriteID: c8c3738439ae39ae0800000000000000
+      internalID: -1543632328965276532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElementalEnemies_10
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 395
+        width: 26
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e33c859f6b9a10ec0800000000000000
+      internalID: -3602411623587200194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElementalEnemies_11
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 387
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a834dcb3c5196c10800000000000000
+      internalID: 2047191436047431849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElementalEnemies_12
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 121
+        width: 344
+        height: 263
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886c385912e8a3a00800000000000000
+      internalID: 737057763922003592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElementalEnemies_13
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 138
+        width: 266
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6f00370717e4270800000000000000
+      internalID: 8236645496286934765
       vertices: []
       indices: 
       edges: []
@@ -364,7 +467,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a517e88ef21ee08428dbedfb4ddc88f1
     internalID: 0
     vertices: []
     indices: 
@@ -374,15 +477,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Environment__0: 5432380033335079387
-      Environment__1: -3773983539396217425
-      Environment__2: 4436701816203649596
-      Environment__3: -3594165537485939006
-      Environment__4: -6500048923197880334
-      Environment__5: 2456873680012293988
-      Environment__6: 7907328008759874486
-      Environment__7: -2550805456205504411
-      Environment__8: 181747324633797227
+      ElementalEnemies_0: 3124344775797177407
+      ElementalEnemies_1: 8581551655264088276
+      ElementalEnemies_10: -3602411623587200194
+      ElementalEnemies_11: 2047191436047431849
+      ElementalEnemies_12: 737057763922003592
+      ElementalEnemies_13: 8236645496286934765
+      ElementalEnemies_2: -5466192237729509825
+      ElementalEnemies_3: -4038913626040152465
+      ElementalEnemies_4: 4076207014812407226
+      ElementalEnemies_5: 7330042022157898152
+      ElementalEnemies_6: -5557321565799777404
+      ElementalEnemies_7: -6003164673536518373
+      ElementalEnemies_8: -4405703764952059526
+      ElementalEnemies_9: -1543632328965276532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
