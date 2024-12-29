@@ -92,9 +92,16 @@ public class MeltableTiles : MonoBehaviour
 
         for (int i=-1; i<2; i++)
         {
-            tilemap.SetTile(tilePos + new Vector3Int(i, 0, 0), null);
-            tilemap.RefreshTile(tilePos + new Vector3Int(i, 0, 0));
+            Vector3Int offset = new Vector3Int(i, 0, 0);
+
+            // Do not melt spikes
+            if (col.gameObject.TryGetComponent<SpikeTiles>(out _))
+                break;
+
+            tilemap.SetTile(tilePos + offset, null);
+            tilemap.RefreshTile(tilePos + offset);
         }
+
 
         //TODO: Animation
     }
