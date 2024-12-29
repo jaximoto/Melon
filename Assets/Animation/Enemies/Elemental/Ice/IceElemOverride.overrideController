@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Animator Override Controller
+  m_Name: IceElemOverride
   m_Controller: {fileID: 9100000, guid: f8e90c3f80aa269459d268b1dc4d4f7a, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 6eb29f5014ba2d54da87744d91cc0222, type: 2}
@@ -15,3 +15,5 @@ AnimatorOverrideController:
     m_OverrideClip: {fileID: 7400000, guid: 64aa7e43c20cff142bf77a9803e70980, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 7cf1c168eda21bc4c9643aea4cb6f806, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: c1c005e381ecd9946a4d414af008a44f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 047df6072937e5d45971d3af58f8ded6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3be843ec2e61e8945a93add526094ba4, type: 2}

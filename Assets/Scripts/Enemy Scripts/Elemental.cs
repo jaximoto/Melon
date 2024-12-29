@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System;
 
 public class Elemental : Enemy
 {
@@ -22,13 +23,11 @@ public class Elemental : Enemy
     private AnimatorOverrideController blueAnimator;
 
     [Range(0f, 1f)]
-    public float chargeTime;
+    public float chargeTime, anticipation, offset;
 
-    [Range(0f, 1f)]
-    public float anticipation;
+    [Range(0f, 5f)]
+    public float deathTime, comedyTime;
 
-    [Range(0f, 1f)]
-    public float offset;
     bool aggroed = false;
     bool dying = false;
     bool anticipating = false;
@@ -36,11 +35,13 @@ public class Elemental : Enemy
     float maxY, minY;
     Vector3 moveDir = Vector3.up;
 
-    
+    Rigidbody2D rb;
 
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         maxY = transform.position.y + offset;
         minY = transform.position.y - offset;
 
@@ -56,7 +57,7 @@ public class Elemental : Enemy
     }
     private void Update()
     {
-        if (aggroed)
+        if (aggroed && !dying)
         {
             EnemyBehaviour();
         }
@@ -90,13 +91,18 @@ public class Elemental : Enemy
 
     public void Freeze()
     {
-        Destroy(gameObject);
+        
+        myAnimator.SetTrigger(DieKey);
+        StartCoroutine("WaitAndDie");
+        
     }
 
 
     public void Melt()
     {
-        Destroy(gameObject);
+        Debug.Log("hit");
+        myAnimator.SetTrigger(DieKey);
+        StartCoroutine("WaitAndDie");
     }
 
 
@@ -113,11 +119,9 @@ public class Elemental : Enemy
 
     void Aggro()
     {
-
         aggroed = true;
         Debug.Log("seen player");
     }
-
 
     public override void Shot()
     {
@@ -145,7 +149,7 @@ public class Elemental : Enemy
 
     void Movement()
     {
-        if (transform.position.y >= maxY || transform.position.y <= minY) 
+        if (transform.position.y >= maxY || transform.position.y <= minY)
         {
             moveDir = moveDir * -1;
         }
@@ -159,7 +163,22 @@ public class Elemental : Enemy
         myAnimator.SetTrigger(AggroKey);
         myAnimator.ResetTrigger(ShootKey);
     }
+
+
+    IEnumerator WaitAndDie()
+    {
+        dying = true;
+        yield return new WaitForSeconds(comedyTime);
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 1;
+        
+        yield return new WaitForSeconds(deathTime);
+        Destroy(gameObject);
+    }
+
+
     private static readonly int AggroKey = Animator.StringToHash("Aggro");
     private static readonly int ShootKey = Animator.StringToHash("Shooting");
-    
+    private static readonly int DieKey = Animator.StringToHash("Dying");
 }

@@ -1895,6 +1895,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1648749068166103451, guid: 390906a99ecbc3844a6e53aeef375bd7, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 56
     m_Data:
@@ -2391,9 +2393,13 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 68ff683ef215e0c418ea93f5527d6a4b, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 31
     m_Data: {fileID: 6349013988125360775, guid: 390906a99ecbc3844a6e53aeef375bd7, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
