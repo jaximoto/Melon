@@ -12,7 +12,12 @@ GameObject:
   - component: {fileID: 3396859129006551456}
   - component: {fileID: 1350059586653308751}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 832911840521681956}
+=======
+  - component: {fileID: 2830578778128869089}
+  - component: {fileID: 218165000118512999}
+>>>>>>> Stashed changes
 =======
   - component: {fileID: 2830578778128869089}
   - component: {fileID: 218165000118512999}
@@ -108,8 +113,11 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!61 &832911840521681956
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!95 &2830578778128869089
 Animator:
   serializedVersion: 7
@@ -133,6 +141,9 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &218165000118512999
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +183,11 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     oldSize: {x: 1.1, y: 1.33}
+=======
+    oldSize: {x: 0.32, y: 0.44333333}
+>>>>>>> Stashed changes
 =======
     oldSize: {x: 0.32, y: 0.44333333}
 >>>>>>> Stashed changes
@@ -182,7 +197,11 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Size: {x: 1, y: 1}
+=======
+  m_Size: {x: 0.32, y: 0.44333333}
+>>>>>>> Stashed changes
 =======
   m_Size: {x: 0.32, y: 0.44333333}
 >>>>>>> Stashed changes
