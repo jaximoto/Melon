@@ -88,7 +88,7 @@ public class Shooter : MonoBehaviour
     }
 
 
-    void InitBullet(Bullet bullet)
+    public void InitBullet(Bullet bullet)
     {
         // This is stupid
         bullet.shotType = this.shotType;

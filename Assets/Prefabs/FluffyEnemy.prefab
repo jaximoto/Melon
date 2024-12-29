@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7066133916507840432}
   - component: {fileID: 2580137525339352305}
   - component: {fileID: 2308452361238149407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ CircleCollider2D:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1015
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -63,7 +63,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4720910370228526667}
   - component: {fileID: 2248561615168782227}
   - component: {fileID: 7153858559750677249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FluffyEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +197,7 @@ MonoBehaviour:
   redBulletSprite: {fileID: 0}
   blueBulletSprite: {fileID: 0}
   defaultDirection: 0
+  shooterType: 0
   moveSpeed: 5
   health: 1
   myState: 0
@@ -305,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470878247585108586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
