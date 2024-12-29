@@ -1,9 +1,33 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class MeltableTiles : MonoBehaviour
 {
     public Tilemap tilemap;
+
+    private class MeltedTile
+    {
+        static public float regenTime = 1.0f; //seconds
+        public float timeSinceMelted = 0.0f;
+        public Vector3Int pos {get; set;}
+        public TileBase tile {get; set;}
+
+        public MeltedTile(Vector3Int pos, TileBase tile)
+        {
+            this.pos = pos;
+            this.tile = tile;
+        }
+
+        public bool ShouldRegen()
+        {
+            return timeSinceMelted >= regenTime;
+        }
+    };
+
+    List<MeltedTile> meltedTiles = new();
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +39,33 @@ public class MeltableTiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateMeltedTiles();
+    }
+
+
+    void UpdateMeltedTiles()
+    {
+        List<MeltedTile> toDelete = new();
+        for(int i=0; i<meltedTiles.Count; i++)
+        {
+            var meltedTile = meltedTiles[i];
+
+            meltedTile.timeSinceMelted += Time.deltaTime;
+
+            Debug.Log(meltedTile.timeSinceMelted);
+
+            if (meltedTile.ShouldRegen())
+            {
+                Debug.Log(meltedTile.timeSinceMelted);
+                tilemap.SetTile(meltedTile.pos, meltedTile.tile);
+                toDelete.Add(meltedTile);
+            }
+        }
+
+        foreach(var meltedTile in toDelete)
+        {
+            meltedTiles.Remove(meltedTile);
+        }
     }
 
 
@@ -26,7 +77,7 @@ public class MeltableTiles : MonoBehaviour
             if (b.shotType == Bullet.ShotType.FIRE_SHOT)
             {
                 // Melt platform
-                Melt(col);
+                MeltShot(col);
             }
             Destroy(b.gameObject);
         }
@@ -71,16 +122,12 @@ public class MeltableTiles : MonoBehaviour
     }
 
 
-
-    public void Melt(Collision2D col)
+    public void MeltShot(Collision2D col)
     {
+        Debug.Log("Melting shot");
         // Get tile, destroy it if it exists in the tilemap
         Vector3Int tilePos = GetPos(col);
-
-        tilemap.SetTile(tilePos, null);
-        tilemap.RefreshTile(tilePos);
-
-        //TODO: Animation
+        DoMelt(tilePos);
     }
 
 
@@ -98,10 +145,20 @@ public class MeltableTiles : MonoBehaviour
             if (col.gameObject.TryGetComponent<SpikeTiles>(out _))
                 break;
 
-            tilemap.SetTile(tilePos + offset, null);
-            tilemap.RefreshTile(tilePos + offset);
+            DoMelt(tilePos + offset);
         }
 
+    }
+
+
+    public void DoMelt(Vector3Int tilePos)
+    {
+        meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos)) );
+        Debug.Log(tilePos);
+        Debug.Log(tilemap.GetTile(tilePos).name);
+
+        tilemap.SetTile(tilePos, null);
+        tilemap.RefreshTile(tilePos);
 
         //TODO: Animation
     }
