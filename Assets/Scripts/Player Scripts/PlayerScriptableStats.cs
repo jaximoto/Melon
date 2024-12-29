@@ -44,7 +44,7 @@ public class PlayerScriptableStats : ScriptableObject
     public float MaxFallSpeed = 40;
 
     [Tooltip("The player's capacity to gain fall speed. a.k.a. In Air Gravity")]
-    public float FallAcceleration = 110;
+    public float FallAcceleration = 50;
 
     [Tooltip("The gravity multiplier added when jump is released early")]
     public float JumpEndEarlyGravityModifier = 3;
