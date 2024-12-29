@@ -35,6 +35,7 @@ public class FreezableTiles : MonoBehaviour
             }
             Destroy(b.gameObject);
         }
+
     }
 
 

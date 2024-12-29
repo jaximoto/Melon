@@ -30,6 +30,16 @@ public class MeltableTiles : MonoBehaviour
             }
             Destroy(b.gameObject);
         }
+
+        PlayerMovement player;
+        if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
+        {
+            Debug.Log("Melting below");
+            if (player.mode == Mode.FIRE_MODE)
+            {
+                MeltBelow(col); //TODO: Delayed melt
+            }
+        }
     }
 
 
@@ -69,6 +79,22 @@ public class MeltableTiles : MonoBehaviour
 
         tilemap.SetTile(tilePos, null);
         tilemap.RefreshTile(tilePos);
+
+        //TODO: Animation
+    }
+
+
+    public void MeltBelow(Collision2D col)
+    {
+        // Get tile, destroy it if it exists in the tilemap
+        Vector3 collisionPos = col.GetContact(0).point;
+        Vector3Int tilePos = tilemap.WorldToCell(collisionPos) + Vector3Int.down;
+
+        for (int i=-1; i<2; i++)
+        {
+            tilemap.SetTile(tilePos + new Vector3Int(i, 0, 0), null);
+            tilemap.RefreshTile(tilePos + new Vector3Int(i, 0, 0));
+        }
 
         //TODO: Animation
     }
