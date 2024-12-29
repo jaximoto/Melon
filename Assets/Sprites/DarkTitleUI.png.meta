@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 356fc04194ec4db4da3a8e0126f4870c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 882027554513439437
+    second: DarkTitleUI_0
+  - first:
+      213: -1773159404328864645
+    second: DarkTitleUI_1
+  - first:
+      213: -4579594025414655522
+    second: DarkTitleUI_2
+  - first:
+      213: -3850317888027149006
+    second: DarkTitleUI_3
+  - first:
+      213: 2800946788727655624
+    second: DarkTitleUI_4
+  - first:
+      213: 2479933964580739713
+    second: DarkTitleUI_5
+  - first:
+      213: 9209559829230920839
+    second: DarkTitleUI_6
+  - first:
+      213: -6030379776029626934
+    second: DarkTitleUI_7
+  - first:
+      213: -2077964094731231554
+    second: DarkTitleUI_8
+  - first:
+      213: -7446689265328431117
+    second: DarkTitleUI_9
+  - first:
+      213: 3533355301194614167
+    second: DarkTitleUI_10
+  - first:
+      213: 8979412506521338300
+    second: DarkTitleUI_11
+  - first:
+      213: 8101369662473919838
+    second: DarkTitleUI_12
+  - first:
+      213: 1545790434684533385
+    second: DarkTitleUI_13
+  - first:
+      213: 970294619367682342
+    second: DarkTitleUI_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DarkTitleUI_0
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 765
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca41ec33679d3c00800000000000000
+      internalID: 882027554513439437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_1
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 766
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74b5d69ae87467e0800000000000000
+      internalID: -1773159404328864645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_2
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 762
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed188a36f730270c0800000000000000
+      internalID: -4579594025414655522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 494
+        width: 191
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d3fcbd74ce09ac0800000000000000
+      internalID: -3850317888027149006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 510
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc02e8a346fed620800000000000000
+      internalID: 2800946788727655624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_5
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 506
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ad2413dce7a6220800000000000000
+      internalID: 2479933964580739713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_6
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 522
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 784240fceddeecf70800000000000000
+      internalID: 9209559829230920839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_7
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 349
+        width: 191
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acded054b89cf4ca0800000000000000
+      internalID: -6030379776029626934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_8
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 312
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe57855aa69923e0800000000000000
+      internalID: -2077964094731231554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_9
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 310
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff5263419b08a890800000000000000
+      internalID: -7446689265328431117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_10
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 276
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 795c2f80deff80130800000000000000
+      internalID: 3533355301194614167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_11
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 277
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb187e689184d9c70800000000000000
+      internalID: 8979412506521338300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_12
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 279
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5d52edf8c8dd6070800000000000000
+      internalID: 8101369662473919838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_13
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 277
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a719cd530c37510800000000000000
+      internalID: 1545790434684533385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkTitleUI_14
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 94
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62132e2c0dd277d00800000000000000
+      internalID: 970294619367682342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DarkTitleUI_0: 882027554513439437
+      DarkTitleUI_1: -1773159404328864645
+      DarkTitleUI_10: 3533355301194614167
+      DarkTitleUI_11: 8979412506521338300
+      DarkTitleUI_12: 8101369662473919838
+      DarkTitleUI_13: 1545790434684533385
+      DarkTitleUI_14: 970294619367682342
+      DarkTitleUI_2: -4579594025414655522
+      DarkTitleUI_3: -3850317888027149006
+      DarkTitleUI_4: 2800946788727655624
+      DarkTitleUI_5: 2479933964580739713
+      DarkTitleUI_6: 9209559829230920839
+      DarkTitleUI_7: -6030379776029626934
+      DarkTitleUI_8: -2077964094731231554
+      DarkTitleUI_9: -7446689265328431117
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
