@@ -269,9 +269,16 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 
     public void OnShat(Bullet b)
     {
-
-        //TODO: Take damage
-        
+        if (b.shotType == Bullet.ShotType.ICE_SHOT)
+        {
+            if (mode == Mode.FIRE_MODE)
+                HandleDeath();
+        }
+        else if (b.shotType == Bullet.ShotType.FIRE_SHOT)
+        {
+            if (mode == Mode.ICE_MODE)
+                HandleDeath();
+        }
     }
 
 }
