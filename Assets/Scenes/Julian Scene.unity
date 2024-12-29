@@ -196,6 +196,22 @@ PrefabInstance:
       propertyPath: defaultDirection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1380908596570822330, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.70666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380908596570822330, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.70666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535186498165847264, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.70666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535186498165847264, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.70666665
+      objectReference: {fileID: 0}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental (2)
@@ -516,6 +532,22 @@ PrefabInstance:
       propertyPath: shotType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1380908596570822330, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.70666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380908596570822330, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.70666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535186498165847264, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.70666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535186498165847264, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.70666665
+      objectReference: {fileID: 0}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental (1)
@@ -573,6 +605,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+--- !u!1001 &2077916028
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.516
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567863507606524730, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: m_Name
+      value: FluffyEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
 --- !u!1001 &2586974423356058264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -669,3 +758,4 @@ SceneRoots:
   - {fileID: 2586974423356058264}
   - {fileID: 530710835}
   - {fileID: 105481540}
+  - {fileID: 2077916028}

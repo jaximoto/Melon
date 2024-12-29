@@ -34,4 +34,33 @@ public class Enemy : Shooter, IShootable
     }
 
 
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        PlayerMovement player;
+        if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
+        {
+            HandlePlayerCollision(player);
+        }
+    }
+
+
+    public void HandlePlayerCollision(PlayerMovement player)
+    {
+        if (myState == EnemyState.Default)
+        {
+            player.HandleDeath();
+        }
+        else if (myState == EnemyState.Frozen)
+        {
+            if (player.mode == Mode.FIRE_MODE)
+                player.HandleDeath();
+        }
+        else if (myState == EnemyState.Fire)
+        {
+            if (player.mode == Mode.ICE_MODE)
+                player.HandleDeath();
+        }
+    }
+
+
 }
