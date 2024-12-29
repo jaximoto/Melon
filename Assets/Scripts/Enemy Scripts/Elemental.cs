@@ -36,11 +36,13 @@ public class Elemental : Enemy
     float maxY, minY;
     Vector3 moveDir = Vector3.up;
 
-    
+    Rigidbody rb;
 
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
+
         maxY = transform.position.y + offset;
         minY = transform.position.y - offset;
 
@@ -90,13 +92,15 @@ public class Elemental : Enemy
 
     public void Freeze()
     {
-        Destroy(gameObject);
+        rb.useGravity = true;
+        myAnimator.SetTrigger(DieKey);
     }
 
 
     public void Melt()
     {
-        Destroy(gameObject);
+        rb.useGravity = true;
+        myAnimator.SetTrigger(DieKey);
     }
 
 
@@ -145,11 +149,15 @@ public class Elemental : Enemy
 
     void Movement()
     {
-        if (transform.position.y >= maxY || transform.position.y <= minY) 
+        if (!dying)
         {
-            moveDir = moveDir * -1;
+            if (transform.position.y >= maxY || transform.position.y <= minY)
+            {
+                moveDir = moveDir * -1;
+            }
+            transform.Translate(moveDir * moveSpeed * Time.deltaTime);
         }
-        transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+        
     }
 
 
@@ -159,7 +167,14 @@ public class Elemental : Enemy
         myAnimator.SetTrigger(AggroKey);
         myAnimator.ResetTrigger(ShootKey);
     }
+
+    IEnumerator WaitAndDie()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
+
     private static readonly int AggroKey = Animator.StringToHash("Aggro");
     private static readonly int ShootKey = Animator.StringToHash("Shooting");
-    
+    private static readonly int DieKey = Animator.StringToHash("Dying");
 }

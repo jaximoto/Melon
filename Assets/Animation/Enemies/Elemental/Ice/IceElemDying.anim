@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireElemShoot
+  m_Name: IceElemDying
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
-    - time: 0.083333336
-      value: {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
+      value: {fileID: -3183703587736955418, guid: 9412bd8f92ed1e3438f113dbef36eb42, type: 3}
+    - time: 0.41666666
+      value: {fileID: 5438908979371818502, guid: 9412bd8f92ed1e3438f113dbef36eb42, type: 3}
+    - time: 0.75
+      value: {fileID: 5438908979371818502, guid: 9412bd8f92ed1e3438f113dbef36eb42, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,19 +48,20 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
-    - {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
+    - {fileID: -3183703587736955418, guid: 9412bd8f92ed1e3438f113dbef36eb42, type: 3}
+    - {fileID: 5438908979371818502, guid: 9412bd8f92ed1e3438f113dbef36eb42, type: 3}
+    - {fileID: 5438908979371818502, guid: 9412bd8f92ed1e3438f113dbef36eb42, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16666667
+    m_StopTime: 0.8333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
