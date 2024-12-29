@@ -3,9 +3,6 @@ using UnityEngine.Tilemaps;
 
 public class MeltableTiles : MonoBehaviour
 {
-
-    public Sprite blueTileSprite;
-
     public Tilemap tilemap;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,7 +67,6 @@ public class MeltableTiles : MonoBehaviour
         // Get tile, destroy it if it exists in the tilemap
         Vector3Int tilePos = GetPos(col);
 
-        //tilemap.DeleteCells(tilePos, new Vector3Int(1, 1, 1));
         tilemap.SetTile(tilePos, null);
         tilemap.RefreshTile(tilePos);
 
