@@ -1744,6 +1744,7 @@ GameObject:
   - component: {fileID: 1016207410800062351}
   - component: {fileID: 5795048433506412529}
   - component: {fileID: 728822118429109347}
+  - component: {fileID: 2347550968378426449}
   m_Layer: 0
   m_Name: FreezableTiles
   m_TagString: Untagged
@@ -2232,3 +2233,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &2347550968378426449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189912605283453037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df4250d904a24a3aa77b29d494a56b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTilemap: {fileID: 1016207410800062351}
+  meltableTilemap: {fileID: 6692750224789574207}
+  meltableTile: {fileID: 11400000, guid: 45d5ffeb7fdc3b64496c22255ae75719, type: 2}
