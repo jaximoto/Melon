@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-
+    Animator animator;
     public Sprite checkpointedSprite;
     bool reached;
 
@@ -10,6 +10,7 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         reached = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +29,9 @@ public class Checkpoint : MonoBehaviour
             player.SetCheckpoint(this);
             reached = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = checkpointedSprite;
+            animator.SetTrigger(RaiseKey);
         }
     }
+    private static readonly int RaiseKey = Animator.StringToHash("raise");
+
 }

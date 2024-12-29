@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 832911840521681956}
   - component: {fileID: 7899610989051359037}
   m_Layer: 0
-  m_Name: Checkpoint
+  m_Name: FireFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50388f36bcc1b4f12bac11a36ff71190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointedSprite: {fileID: -3594165537485939006, guid: 0eba5cb4eb3c74e9d8580745ceb61dae, type: 3}
+  checkpointedSprite: {fileID: -6500048923197880334, guid: 0eba5cb4eb3c74e9d8580745ceb61dae, type: 3}
 --- !u!212 &1350059586653308751
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5432380033335079387, guid: 0eba5cb4eb3c74e9d8580745ceb61dae, type: 3}
+  m_Sprite: {fileID: -3773983539396217425, guid: 0eba5cb4eb3c74e9d8580745ceb61dae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.44333333}
+    oldSize: {x: 0.35666665, y: 0.45666668}
     newSize: {x: 1.1, y: 1.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 1007105274226169045}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c58dac5e68b70ea468b068c550e2a874, type: 2}
+  m_Controller: {fileID: 9100000, guid: 72cf35edf0888384bbf1d171f5590ce4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
