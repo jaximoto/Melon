@@ -7,9 +7,10 @@ public class MeltableTiles : MonoBehaviour
 {
     public Tilemap tilemap;
 
+    static public float regenTime = 1.0f; //seconds
+
     private class MeltedTile
     {
-        static public float regenTime = 1.0f; //seconds
         public float timeSinceMelted = 0.0f;
         public Vector3Int pos {get; set;}
         public TileBase tile {get; set;}
@@ -52,11 +53,8 @@ public class MeltableTiles : MonoBehaviour
 
             meltedTile.timeSinceMelted += Time.deltaTime;
 
-            Debug.Log(meltedTile.timeSinceMelted);
-
             if (meltedTile.ShouldRegen())
             {
-                Debug.Log(meltedTile.timeSinceMelted);
                 tilemap.SetTile(meltedTile.pos, meltedTile.tile);
                 toDelete.Add(meltedTile);
             }
@@ -85,7 +83,6 @@ public class MeltableTiles : MonoBehaviour
         PlayerMovement player;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
         {
-            Debug.Log("Melting below");
             if (player.mode == Mode.FIRE_MODE)
             {
                 MeltBelow(col); //TODO: Delayed melt
@@ -124,7 +121,6 @@ public class MeltableTiles : MonoBehaviour
 
     public void MeltShot(Collision2D col)
     {
-        Debug.Log("Melting shot");
         // Get tile, destroy it if it exists in the tilemap
         Vector3Int tilePos = GetPos(col);
         DoMelt(tilePos);
@@ -154,8 +150,6 @@ public class MeltableTiles : MonoBehaviour
     public void DoMelt(Vector3Int tilePos)
     {
         meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos)) );
-        Debug.Log(tilePos);
-        Debug.Log(tilemap.GetTile(tilePos).name);
 
         tilemap.SetTile(tilePos, null);
         tilemap.RefreshTile(tilePos);
