@@ -6,6 +6,7 @@ public enum Mode
     ICE_MODE,
     FIRE_MODE
 };
+
 public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 {
 
@@ -31,6 +32,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 
     private float _time;
 
+    private Checkpoint checkpoint;
+
 
     private void Awake()
     {
@@ -41,14 +44,35 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
         mode = Mode.ICE_MODE;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         _time += Time.deltaTime;
+
         GatherInput();
+
         HandleSwitch();
+
         HandleShot();
     }
+
+
+    public void HandleDeath()
+    {
+        // Move to last checkpoint
+        gameObject.transform.position = checkpoint.gameObject.transform.position;
+
+        // And move the camera
+    }
+
+
+    public void SetCheckpoint(Checkpoint c)
+    {
+        this.checkpoint = c;
+    }
+
+
     private void GatherInput()
     {
         _frameInput = new FrameInput
@@ -73,6 +97,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
         }
     }
 
+
     private void FixedUpdate()
     {
         CheckCollisions();
@@ -86,11 +111,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 
     # region Switch
 
+
     private void HandleSwitch()
     {
         if (_frameInput.SwitchHeld)
             ExecuteSwitch();
     }
+
 
     private void ExecuteSwitch()
     {
@@ -228,7 +255,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 
     #endregion
 
+
     private void ApplyMovement() => _rb.linearVelocity = _frameVelocity;
+
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -237,14 +266,23 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     }
 #endif
 
+
     public void OnShat(Bullet b)
     {
-
-        //TODO: Take damage
-        
+        if (b.shotType == Bullet.ShotType.ICE_SHOT)
+        {
+            if (mode == Mode.FIRE_MODE)
+                HandleDeath();
+        }
+        else if (b.shotType == Bullet.ShotType.FIRE_SHOT)
+        {
+            if (mode == Mode.ICE_MODE)
+                HandleDeath();
+        }
     }
 
 }
+
 
 public struct FrameInput
 {
@@ -254,6 +292,7 @@ public struct FrameInput
     public bool JumpHeld;
     public Vector2 Move;
 }
+
 
 public interface IPlayerController
 {

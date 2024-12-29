@@ -36,6 +36,15 @@ public class FreezableTiles : MonoBehaviour
             Destroy(b.gameObject);
         }
 
+        PlayerMovement p;
+        if (col.gameObject.TryGetComponent<PlayerMovement>(out p))
+        {
+            if (p.mode == Mode.ICE_MODE)
+            {
+                p.HandleDeath();
+            }
+        }
+
     }
 
 
