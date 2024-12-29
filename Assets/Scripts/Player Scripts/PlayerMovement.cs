@@ -53,8 +53,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     {
         _frameInput = new FrameInput
         {
-            SwitchHeld = Input.GetKeyDown(KeyCode.Z),
-            ShotHeld = Input.GetKeyDown(KeyCode.X),
+            SwitchHeld = Input.GetMouseButtonDown(1),
+            ShotHeld = Input.GetMouseButtonDown(0),
             JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
             JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
             Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
