@@ -75,7 +75,7 @@ public class Bullet : MonoBehaviour
             i.OnShat(this);
             Destroy(gameObject);
         }
-
+        
     }
     
 }
