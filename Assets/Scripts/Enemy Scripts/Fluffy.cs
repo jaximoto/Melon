@@ -5,24 +5,22 @@ using UnityEngine;
 public class Fluffy : Enemy
 {
     public Collider2D viewRadius;
-    public bool aggroed, dying, celebrating;
-    int flipper = 1;
+
+
     SpriteRenderer spriteRenderer;
     Rigidbody2D myRigidbody2D;
-    
 
+
+    public void Awake()
+    {
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     public override void Start()
     {
         base.Start();
         player = null;//
-        aggroed = false;
-        dying = false;
-        celebrating = false;
-        flipper = 1;
-
-        myRigidbody2D = GetComponent<Rigidbody2D>();
-        
-        spriteRenderer = GetComponent<SpriteRenderer>();
         //BounceEnemy.HitWall += FlipFluffy;
   
     }
@@ -130,14 +128,13 @@ public class Fluffy : Enemy
 
     public override void HandleCollisionAnimation()
     {
-        if (!aggroed)
-        {
-            celebrating = true;
-            Debug.Log("Handling?");
-            ResetAllTriggers(animator);
-            animator.SetTrigger(CelebrateKey);
+
+        celebrating = true;
+        Debug.Log("Handling?");
+        ResetAllTriggers(animator);
+        animator.SetTrigger(CelebrateKey);
             
-        }
+        
 
     }
 
@@ -157,9 +154,11 @@ public class Fluffy : Enemy
 
     IEnumerator Die()
     {
+        lastFlipper = flipper;
+        myRigidbody2D.bodyType = RigidbodyType2D.Static;
         dying = true;
         aggroed = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         //Destroy(gameObject);
         gameObject.SetActive(false);
     }

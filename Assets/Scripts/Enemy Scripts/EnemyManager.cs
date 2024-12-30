@@ -34,6 +34,7 @@ public class EnemyManager : MonoBehaviour
     {
         foreach(KeyValuePair<GameObject, Vector3> kvp in enemyPositions)
         {
+            kvp.Key.gameObject.SetActive(false);
             kvp.Key.gameObject.SetActive(true);
             kvp.Key.transform.position = kvp.Value;
         }

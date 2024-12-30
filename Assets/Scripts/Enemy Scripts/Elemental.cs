@@ -28,19 +28,18 @@ public class Elemental : Enemy
     [Range(0f, 5f)]
     public float deathTime, comedyTime;
 
-    bool aggroed = false;
-    bool dying = false;
+
     bool anticipating = false;
 
     float maxY, minY;
     Vector3 moveDir = Vector3.up;
 
-    public Rigidbody2D _rb;
+    public Rigidbody2D rigidBody;
 
 
     public void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
 
         maxY = transform.position.y + offset;
         minY = transform.position.y - offset;
@@ -171,8 +170,8 @@ public class Elemental : Enemy
         dying = true;
         yield return new WaitForSeconds(comedyTime);
 
-        _rb.bodyType = RigidbodyType2D.Dynamic;
-        _rb.gravityScale = 1;
+        rigidBody.bodyType = RigidbodyType2D.Dynamic;
+        rigidBody.gravityScale = 1;
         
         yield return new WaitForSeconds(deathTime);
         gameObject.SetActive(false);

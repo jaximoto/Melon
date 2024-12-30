@@ -1,18 +1,26 @@
-using JetBrains.Annotations;
-using NUnit.Framework;
+
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Animations;
+using AnimatorControllerParameter = UnityEngine.AnimatorControllerParameter;
+using AnimatorControllerParameterType = UnityEngine.AnimatorControllerParameterType;
 
 public class Enemy : Shooter, IShootable
 {
     public float moveSpeed;
     public int health;
-
-
+    public int flipper;
+    public int lastFlipper; 
+    public bool aggroed, dying, celebrating, spawnedOnce;
     public EnemyManager enemyManager;
 
     private Rigidbody2D rigidBody;
     public Animator animator;
+    public List<AnimatorControllerParameter> parameters = new List<AnimatorControllerParameter>();
 
+    private Transform lastTransform;
     public enum EnemyState
     {
         Frozen,
@@ -20,36 +28,57 @@ public class Enemy : Shooter, IShootable
         Default
     };
 
-
+    
     public EnemyState myState;
 
     public void OnEnable()
     {
-	    rigidBody = GetComponent<Rigidbody2D>();	
+        if (spawnedOnce)
+        {
+            transform.localScale = new Vector3(lastTransform.localScale.x, lastTransform.localScale.y, lastTransform.localScale.z);
+        }
+        spawnedOnce = true;
+        flipper = lastFlipper * -1;
+        rigidBody = GetComponent<Rigidbody2D>();	
         animator = GetComponent<Animator>();
-
+        aggroed = false;
+        Debug.Log("got here");
+        dying = false;
+        celebrating = false;
         if (gameObject.TryGetComponent<Elemental>(out _))
             rigidBody.bodyType = RigidbodyType2D.Static;
         else
             rigidBody.bodyType = RigidbodyType2D.Dynamic;
-
+        ResetAllTriggers(animator);
         animator.SetTrigger(ResetKey);
         animator.ResetTrigger(ResetKey);
-        ResetAllTriggers(animator);
+
     }
 
 
     public void ResetAllTriggers(Animator animator)
     {
-		foreach (var param in animator.parameters)
+
+        /*for (int i = 0; i < animator.parameterCount; i++)
 		{
-            Debug.Log("param " + param.ToString());
-			if (param.type == AnimatorControllerParameterType.Trigger)
+            Debug.Log("param " + parameters[i].ToString());
+			if (parameters[i].type == AnimatorControllerParameterType.Bool)
 			{
+
                 Debug.Log("GOING ");
-                animator.ResetTrigger(param.name);
+                animator.ResetTrigger(parameters[i].ToString());
 			}
-		}        
+		}    
+        */
+
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            if (parameter.type == AnimatorControllerParameterType.Bool)
+            {
+
+                animator.SetBool(parameter.name, false);
+            }
+        }
     }
 
 
@@ -64,6 +93,8 @@ public class Enemy : Shooter, IShootable
         enemyManager.enemyPositions[this.gameObject] = new Vector3(this.gameObject.transform.position.x,    
                                                                     this.gameObject.transform.position.y,
 																		0.0f);
+
+        lastTransform = transform;
     }
 
 
