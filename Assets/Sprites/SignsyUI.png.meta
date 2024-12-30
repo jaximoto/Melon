@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 8e8f01e1c8174ce43b50009a63d814e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 24291802896848932
+    second: SignsyUI_0
+  - first:
+      213: -8095915381677282927
+    second: SignsyUI_1
+  - first:
+      213: 8585115048675213092
+    second: SignsyUI_2
+  - first:
+      213: 7551239657696294030
+    second: SignsyUI_3
+  - first:
+      213: 945748916885566055
+    second: SignsyUI_4
+  - first:
+      213: -8713103082552437340
+    second: SignsyUI_5
+  - first:
+      213: -4105635985426833562
+    second: SignsyUI_6
+  - first:
+      213: 7521854519258949995
+    second: SignsyUI_7
+  - first:
+      213: 3339772964003357099
+    second: SignsyUI_8
+  - first:
+      213: 5337844480203112615
+    second: SignsyUI_9
+  - first:
+      213: 4162515332911159953
+    second: SignsyUI_10
+  - first:
+      213: 9097390542870799347
+    second: SignsyUI_11
+  - first:
+      213: 2170010861491524946
+    second: SignsyUI_12
+  - first:
+      213: 2793947070576322187
+    second: SignsyUI_13
+  - first:
+      213: 3616459634386288536
+    second: SignsyUI_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SignsyUI_0
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 626
+        width: 269
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428de9a144d465000800000000000000
+      internalID: 24291802896848932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_1
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 640
+        width: 268
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1992187bad785af80800000000000000
+      internalID: -8095915381677282927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_2
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 636
+        width: 268
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f7520a6a4742770800000000000000
+      internalID: 8585115048675213092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_3
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 640
+        width: 268
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8474d2e5746bc860800000000000000
+      internalID: 7551239657696294030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 546
+        width: 268
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 762bcad01a9ff1d00800000000000000
+      internalID: 945748916885566055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_5
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 268
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5d91119e6d41780800000000000000
+      internalID: -8713103082552437340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_6
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 268
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f9297e2d9d507c0800000000000000
+      internalID: -4105635985426833562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_7
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 334
+        width: 337
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69a89035def26860800000000000000
+      internalID: 7521854519258949995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_8
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 517
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba1afddd0d1495e20800000000000000
+      internalID: 3339772964003357099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_9
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 336
+        width: 337
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a049cc0645d31a40800000000000000
+      internalID: 5337844480203112615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_10
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 519
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a594e24a934c930800000000000000
+      internalID: 4162515332911159953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_11
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 268
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f3efcaaf7c604e70800000000000000
+      internalID: 9097390542870799347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_12
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 264
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25511fd916d6d1e10800000000000000
+      internalID: 2170010861491524946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_13
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 85
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86e1f6ce0816c620800000000000000
+      internalID: 2793947070576322187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsyUI_14
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 81
+        width: 337
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f322c60ee303230800000000000000
+      internalID: 3616459634386288536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SignsyUI_0: 24291802896848932
+      SignsyUI_1: -8095915381677282927
+      SignsyUI_10: 4162515332911159953
+      SignsyUI_11: 9097390542870799347
+      SignsyUI_12: 2170010861491524946
+      SignsyUI_13: 2793947070576322187
+      SignsyUI_14: 3616459634386288536
+      SignsyUI_2: 8585115048675213092
+      SignsyUI_3: 7551239657696294030
+      SignsyUI_4: 945748916885566055
+      SignsyUI_5: -8713103082552437340
+      SignsyUI_6: -4105635985426833562
+      SignsyUI_7: 7521854519258949995
+      SignsyUI_8: 3339772964003357099
+      SignsyUI_9: 5337844480203112615
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
