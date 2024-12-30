@@ -329,8 +329,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: de3779a33f5d9a44da254ac0210dc725, type: 2}
-  _animator: {fileID: 0}
+  _animator: {fileID: 4761122941863853830}
   dead: 0
   mode: 0
   takingInput: 1
   oneWayCollider: {fileID: 0}
+  coyoteIgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 0
