@@ -149,7 +149,7 @@ MonoBehaviour:
   shooterType: 1
   moveSpeed: 0.1
   health: 1
-  myState: 1
+  myState: 0
   redElemental: {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   blueElemental: {fileID: -6642664634949828623, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   redElementalAggro: {fileID: 8236645496286934765, guid: 30c43acf4e9d9e24997aed11a5d600f6, type: 3}
@@ -161,6 +161,8 @@ MonoBehaviour:
   chargeTime: 0.1
   anticipation: 0.85
   offset: 0.05
+  deathTime: 3
+  comedyTime: 1
 --- !u!50 &3926351435532948577
 Rigidbody2D:
   serializedVersion: 5
@@ -198,7 +200,7 @@ Animator:
   m_GameObject: {fileID: 3316821778490586099}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8e90c3f80aa269459d268b1dc4d4f7a, type: 2}
+  m_Controller: {fileID: 22100000, guid: 8e82f57dd1262374cbebc481d018915f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
