@@ -15,14 +15,17 @@ public class MeltableTiles : MonoBehaviour
         public float regenTime;
         public float timeSinceMelted = 0.0f;
         public Vector3Int pos {get; set;}
+        public Quaternion rot{get; set;}
         public TileBase tile {get; set;}
 
-        public MeltedTile(Vector3Int pos, TileBase tile, float regenTime)
+        public MeltedTile(Vector3Int pos, TileBase tile, float regenTime, Quaternion rot)
         {
             this.pos = pos;
             this.tile = tile;
             this.regenTime = regenTime;
+            this.rot = rot;
         }
+
 
         public bool ShouldRegen()
         {
@@ -132,6 +135,10 @@ public class MeltableTiles : MonoBehaviour
             if (meltedTile.ShouldRegen())
             {
                 tilemap.SetTile(meltedTile.pos, meltedTile.tile);
+                Color color = tilemap.GetColor(meltedTile.pos);
+                color.a = 1.0f;
+                tilemap.SetColor(meltedTile.pos, color);
+                SetTileRotation(tilemap, meltedTile.pos, meltedTile.rot);
                 toDelete.Add(meltedTile);
             }
         }
@@ -142,22 +149,6 @@ public class MeltableTiles : MonoBehaviour
         }
     }
 
-
-    public void OnCollisionStay2D(Collision2D col)
-    {
-        /*
-        PlayerMovement player;
-        if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
-        {
-            //UpdateMeltingTile(col);
-            if (player.mode == Mode.FIRE_MODE)
-            {
-                MeltBelow(col); 
-            }
-
-        }
-        */
-    }
 
 
     public void OnCollisionExit2D(Collision2D col)
@@ -191,6 +182,19 @@ public class MeltableTiles : MonoBehaviour
             if (player.mode == Mode.FIRE_MODE)
             {
                 MeltBelow(col); 
+            }
+        }
+    }
+
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
+        PlayerMovement p;
+        if (col.gameObject.TryGetComponent<PlayerMovement>(out p))
+        {
+            if (p.mode == Mode.FIRE_MODE)
+            {
+                MeltBelow(col);
             }
         }
     }
@@ -271,10 +275,36 @@ public class MeltableTiles : MonoBehaviour
     }
 
 
+	// Get the rotation of a tile
+    public Quaternion GetTileRotation(Tilemap tilemap, Vector3Int position)
+    {
+        Matrix4x4 tileMatrix = tilemap.GetTransformMatrix(position);
+        return Quaternion.LookRotation(tileMatrix.GetColumn(2), tileMatrix.GetColumn(1));
+    }
+
+
+    // Set the rotation of a tile
+    public void SetTileRotation(Tilemap tilemap, Vector3Int position, Quaternion rotation)
+    {
+        Matrix4x4 currentMatrix = tilemap.GetTransformMatrix(position);
+        Matrix4x4 newMatrix = Matrix4x4.TRS(currentMatrix.GetColumn(3), rotation, currentMatrix.lossyScale);
+        tilemap.SetTransformMatrix(position, newMatrix);
+    }
+
+
     public void AddMeltingTile(Vector3Int tilePos)
     {
         if (tilemap.HasTile(tilePos))
+        {
+            var color = tilemap.GetColor(tilePos);
+            color.a = 0.5f;
+            tilemap.SetTileFlags(tilePos, TileFlags.None);
+            tilemap.SetColor(tilePos, color);
+            tilemap.RefreshTile(tilePos);
+
+            //meltingTiles.Add(new MeltingTile( tilePos, tilemap.GetTile(tilePos), meltTime, GetTileRotation(tilemap, tilePos)) );
             meltingTiles.Add(new MeltingTile( tilePos, tilemap.GetTile(tilePos), meltTime) );
+        }
     }
 
 
@@ -342,8 +372,9 @@ public class MeltableTiles : MonoBehaviour
         // Only regen platforms and spikes
         if (t.name.Contains("Floating") || t.name.Contains("Stalagmite") || t.name.Contains("Falling"))
         {
-            meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
+            meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime, GetTileRotation(tilemap, tilePos)) );
         }
+            //meltingTiles.Add(new MeltingTile( tilePos, tilemap.GetTile(tilePos), meltTime, GetTileRotation(tilemap, tilePos)) );
         else
         {
             // Propogate melt
