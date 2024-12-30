@@ -8,7 +8,8 @@ public class FreezableTiles : MonoBehaviour
     public Tilemap myTilemap;
     public Tilemap meltableTilemap;
 
-    public Tile meltableTile;
+    public TileBase iceBlockTile;
+    public TileBase icePlatformTile;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +36,11 @@ public class FreezableTiles : MonoBehaviour
             }
             Destroy(b.gameObject);
         }
+    }
+
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
 
         PlayerMovement p;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out p))
@@ -44,7 +50,6 @@ public class FreezableTiles : MonoBehaviour
                 p.HandleDeath();
             }
         }
-
     }
 
 
@@ -103,7 +108,6 @@ public class FreezableTiles : MonoBehaviour
             // Check plus shape around nexus for more tiles
             var curr = s.Pop();
             result.Add(curr);
-            Debug.Log(curr);
             tilesFrozen++;
             
             for (int i=0; i<4; i++)
@@ -135,8 +139,19 @@ public class FreezableTiles : MonoBehaviour
 
         foreach(Vector3Int pos in tilePositions)
         {
-            // Add to meltable tilemap
-            meltableTilemap.SetTile(pos, meltableTile);
+            // Is this a platform or block?
+            TileBase toFreezeTile = myTilemap.GetTile(pos);
+            if (toFreezeTile.name.Contains("Platform"))
+            {
+                // Add to meltable tilemap
+                meltableTilemap.SetTile(pos, icePlatformTile);
+            }
+            else if (toFreezeTile.name.Contains("Lava"))
+            {
+                // Add to meltable tilemap
+                meltableTilemap.SetTile(pos, iceBlockTile);
+            }
+
 
             // Remove from my tilemap
             myTilemap.SetTile(pos, null);

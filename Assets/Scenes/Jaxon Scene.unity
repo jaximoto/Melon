@@ -264,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 230339157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: 3.88, z: -10}
+  m_LocalPosition: {x: -3.037, y: 4.062, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -504,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 433089439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: 3.88, z: -10}
+  m_LocalPosition: {x: -3.037, y: 4.062, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -624,6 +624,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa33944ac60d5594e932e5bf9d49eb7a, type: 3}
+--- !u!95 &1205104591 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4761122941863853830, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
+  m_PrefabInstance: {fileID: 2543827597974054240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1215565347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 534489167364614584, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
@@ -928,11 +933,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534489167364614584, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.17
+      value: -3.037
       objectReference: {fileID: 0}
     - target: {fileID: 534489167364614584, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.88
+      value: 4.062
       objectReference: {fileID: 0}
     - target: {fileID: 534489167364614584, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -970,6 +975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5487882643575306028, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1205104591}
     - target: {fileID: 6526229993490149212, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.04

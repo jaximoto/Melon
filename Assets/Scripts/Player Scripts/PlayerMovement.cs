@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -14,10 +15,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     [SerializeField] private PlayerScriptableStats _stats;
     private Rigidbody2D _rb;
     private CapsuleCollider2D _col;
+    public Animator _animator;
     private FrameInput _frameInput;
     private Vector2 _frameVelocity;
     private bool _cachedQueryStartInColliders;
-
+    public bool dead = false;
    
     public Mode mode;
 
@@ -28,7 +30,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     public event Action JumpApex;
     public event Action Falling;
     public event Action Shot;
+    public event Action Death;
+    public event Action AfterDeath;
+
+
+
     public event Action<Mode> Switch;
+    public bool takingInput = true;
     #endregion
 
     private float _time;
@@ -42,7 +50,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
         //oneWayCollider.excludeLayers.
         //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), oneWayCollider);
         //Physics2D.IgnoreLayerCollision(3, 10);
-
+        
         _rb = GetComponent<Rigidbody2D>();
         _col = GetComponent<CapsuleCollider2D>();
         _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
@@ -56,7 +64,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     {
         
         _time += Time.deltaTime;
-        if (_time > .5f)
+        if (_time > .5f && takingInput)
         {
             GatherInput();
 
@@ -88,11 +96,36 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     public void HandleDeath()
     {
         // Move to last checkpoint
-        gameObject.transform.position = checkpoint.gameObject.transform.position;
-
+        if (!dead)
+        {
+            Death?.Invoke();
+            StartCoroutine(WaitForIdleThenTeleport());
+        }
+       
         // And move the camera
     }
 
+    private IEnumerator WaitForIdleThenTeleport() { 
+    
+        dead = true;
+        takingInput = false;
+        // Get the Animator's current state info
+        AnimatorStateInfo currentState = _animator.GetCurrentAnimatorStateInfo(0);
+        float startTime = 0f;
+        float endTime = .67f;
+        // Wait until the animator's current state matches Idle
+        while (startTime < endTime)
+        {
+            startTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+        AfterDeath?.Invoke();
+        gameObject.transform.position = checkpoint.gameObject.transform.position;
+        takingInput = true;
+        dead = false;
+        //Debug.Log("Animation is now idle. Continuing...");
+        // Place the code to execute after idle state here
+    }
 
     public void SetCheckpoint(Checkpoint c)
     {
@@ -347,6 +380,9 @@ public interface IPlayerController
     public event Action JumpApex;
 
     public event Action Falling;
+
+    public event Action Death;
+    public event Action AfterDeath;
     public Vector2 FrameInput { get; }
 
     public event Action Shot;
