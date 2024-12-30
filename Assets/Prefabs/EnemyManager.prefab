@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   fluffyPrefab: {fileID: -8930033209099493362, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
-  fireElementalPrefab: {fileID: 0}
-  iceElementalPrefab: {fileID: 0}
+  fireElementalPrefab: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+  iceElementalPrefab: {fileID: 3289006042486025507, guid: b925c7c8aadb7b540b4652d58c169480, type: 3}
