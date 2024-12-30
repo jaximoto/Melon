@@ -150,22 +150,6 @@ public class MeltableTiles : MonoBehaviour
     }
 
 
-    public void OnCollisionStay2D(Collision2D col)
-    {
-        /*
-        PlayerMovement player;
-        if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
-        {
-            //UpdateMeltingTile(col);
-            if (player.mode == Mode.FIRE_MODE)
-            {
-                MeltBelow(col); 
-            }
-
-        }
-        */
-    }
-
 
     public void OnCollisionExit2D(Collision2D col)
     {
@@ -198,6 +182,19 @@ public class MeltableTiles : MonoBehaviour
             if (player.mode == Mode.FIRE_MODE)
             {
                 MeltBelow(col); 
+            }
+        }
+    }
+
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
+        PlayerMovement p;
+        if (col.gameObject.TryGetComponent<PlayerMovement>(out p))
+        {
+            if (p.mode == Mode.FIRE_MODE)
+            {
+                MeltBelow(col);
             }
         }
     }
