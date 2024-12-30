@@ -201,6 +201,7 @@ MonoBehaviour:
   shooterType: 0
   moveSpeed: 5
   health: 1
+  enemyManager: {fileID: 0}
   myState: 2
   viewRadius: {fileID: 0}
 --- !u!95 &4720910370228526667

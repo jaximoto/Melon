@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4076207014812407226, guid: 30c43acf4e9d9e24997aed11a5d600f6, type: 3}
+  m_Sprite: {fileID: -6402620612133560363, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,15 +141,16 @@ MonoBehaviour:
   fireRate: 5
   dummyBullet: {fileID: 8372023690925558697, guid: f378a9485c9dfbb4b9b6154142d6e38f, type: 3}
   timeSinceLastShot: 0
-  shotType: 1
+  shotType: 0
   direction: {x: 0, y: 0, z: 0}
   redBulletSprite: {fileID: -1166008216507343002, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   blueBulletSprite: {fileID: 7504884279990067226, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
-  defaultDirection: 1
+  defaultDirection: 0
   shooterType: 1
   moveSpeed: 0.1
   health: 1
-  myState: 0
+  enemyManager: {fileID: 0}
+  myState: 1
   redElemental: {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   blueElemental: {fileID: -6642664634949828623, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   redElementalAggro: {fileID: 8236645496286934765, guid: 30c43acf4e9d9e24997aed11a5d600f6, type: 3}
@@ -161,7 +162,7 @@ MonoBehaviour:
   chargeTime: 0.1
   anticipation: 0.85
   offset: 0.05
-  deathTime: 3
+  deathTime: 0.2
   comedyTime: 1
 --- !u!50 &3926351435532948577
 Rigidbody2D:
