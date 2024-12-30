@@ -132,6 +132,9 @@ public class MeltableTiles : MonoBehaviour
             if (meltedTile.ShouldRegen())
             {
                 tilemap.SetTile(meltedTile.pos, meltedTile.tile);
+                Color color = tilemap.GetColor(meltedTile.pos);
+                color.a = 1.0f;
+                tilemap.SetColor(meltedTile.pos, color);
                 toDelete.Add(meltedTile);
             }
         }
@@ -274,7 +277,14 @@ public class MeltableTiles : MonoBehaviour
     public void AddMeltingTile(Vector3Int tilePos)
     {
         if (tilemap.HasTile(tilePos))
+        {
+            var color = tilemap.GetColor(tilePos);
+            color.a = 0.5f;
+            tilemap.SetTileFlags(tilePos, TileFlags.None);
+            tilemap.SetColor(tilePos, color);
+            tilemap.RefreshTile(tilePos);
             meltingTiles.Add(new MeltingTile( tilePos, tilemap.GetTile(tilePos), meltTime) );
+        }
     }
 
 
