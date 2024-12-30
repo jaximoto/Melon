@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &822593305 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4761122941863853830, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
+  m_PrefabInstance: {fileID: 1620787760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1223294003 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5487882643575306028, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
@@ -142,6 +147,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1223294003}
+    - target: {fileID: -8930033209099493362, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
+      propertyPath: myState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.61
@@ -300,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5487882643575306028, guid: fe17073e749f79b4b80fc8e810e9caf0, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 822593305}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

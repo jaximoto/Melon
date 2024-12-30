@@ -11,8 +11,9 @@ public class Fluffy : Enemy
     int flipper = 1;
     SpriteRenderer spriteRenderer;
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
         //BounceEnemy.HitWall += FlipFluffy;
         animator = GetComponent<Animator>();    
