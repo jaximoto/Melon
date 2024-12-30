@@ -329,4 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: de3779a33f5d9a44da254ac0210dc725, type: 2}
+  _animator: {fileID: 0}
+  dead: 0
   mode: 0
+  takingInput: 1
+  oneWayCollider: {fileID: 0}
