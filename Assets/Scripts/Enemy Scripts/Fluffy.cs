@@ -15,12 +15,15 @@ public class Fluffy : Enemy
 
     public override void Start()
     {
+        base.Start();
+
         myRigidbody2D = GetComponent<Rigidbody2D>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         //BounceEnemy.HitWall += FlipFluffy;
         animator = GetComponent<Animator>();    
     }
+
 
     private void OnDisable()
     {
@@ -63,6 +66,7 @@ public class Fluffy : Enemy
 
     public override void OnShat(Bullet b)
     {
+        base.OnShat(b);
         if (b.shotType == Bullet.ShotType.ICE_SHOT)
         {
             Freeze();
@@ -143,7 +147,8 @@ public class Fluffy : Enemy
         dying = true;
         aggroed = false;
         yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 

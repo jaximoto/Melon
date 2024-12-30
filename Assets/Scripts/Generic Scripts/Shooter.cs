@@ -30,6 +30,7 @@ public class Shooter : MonoBehaviour
     public ShooterType shooterType;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     public virtual void Start()
     {
         if(player != null)
