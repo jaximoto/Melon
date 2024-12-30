@@ -1,10 +1,10 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class Enemy : Shooter, IShootable 
+public class Enemy : Shooter, IShootable
 {
     public float moveSpeed;
     public int health;
-
     //shooter variables
 
     public enum EnemyState
@@ -15,7 +15,6 @@ public class Enemy : Shooter, IShootable
     };
 
     public EnemyState myState;
-
 
     public virtual void OnShat(Bullet b)
     {
@@ -60,6 +59,13 @@ public class Enemy : Shooter, IShootable
             if (player.mode == Mode.ICE_MODE)
                 player.HandleDeath();
         }
+        HandleCollisionAnimation();
+
+    }
+
+    public virtual void HandleCollisionAnimation()
+    {
+
     }
 
 

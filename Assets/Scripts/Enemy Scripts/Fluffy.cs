@@ -10,9 +10,13 @@ public class Fluffy : Enemy
     bool dying = false;
     int flipper = 1;
     SpriteRenderer spriteRenderer;
+    Rigidbody2D myRigidbody2D;
+    bool celebrating = false;
 
-    void Start()
+    public override void Start()
     {
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         //BounceEnemy.HitWall += FlipFluffy;
         animator = GetComponent<Animator>();    
@@ -24,7 +28,11 @@ public class Fluffy : Enemy
     }
     void Update()
     {
-        EnemyBehaviour();
+        if(!celebrating)
+        {
+            EnemyBehaviour();
+        }
+        
     }
 
     public void FlipFluffy()
@@ -109,6 +117,17 @@ public class Fluffy : Enemy
         } 
     }
 
+
+    public override void HandleCollisionAnimation()
+    {
+        celebrating = true;
+        Debug.Log("Handling?");
+        animator.SetTrigger(CelebrateKey);
+        animator.ResetTrigger(WalkKey);
+        myRigidbody2D.bodyType = RigidbodyType2D.Static;
+    }
+
+
     IEnumerator Aggro()
     {
         animator.SetTrigger(SeenKey);
@@ -135,7 +154,6 @@ public class Fluffy : Enemy
 
     // Change walk key  it isnt found TODOOO
     private static readonly int WalkKey = Animator.StringToHash("IsMoving");
-
-
-    
+    private static readonly int CelebrateKey = Animator.StringToHash("Celebrating");
+ 
 }
