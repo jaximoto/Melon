@@ -29,7 +29,7 @@ public class FreezableTiles : MonoBehaviour
         Bullet b;
         if (col.gameObject.TryGetComponent<Bullet>(out b))
         {
-            if (b.shotType == Bullet.ShotType.ICE_SHOT)
+            if (b.shotType == Bullet.ShotType.ICE_SHOT && b.gameObject.layer != 9) // Enemy bullet layer 9
             {
                 // Melt platform
                 Freeze(col);
@@ -41,7 +41,6 @@ public class FreezableTiles : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D col)
     {
-
         PlayerMovement p;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out p))
         {
@@ -139,8 +138,9 @@ public class FreezableTiles : MonoBehaviour
 
         foreach(Vector3Int pos in tilePositions)
         {
-            // Is this a platform or block?
             TileBase toFreezeTile = myTilemap.GetTile(pos);
+
+            // Is this a platform or block?
             if (toFreezeTile.name.Contains("Platform"))
             {
                 // Add to meltable tilemap
@@ -151,7 +151,6 @@ public class FreezableTiles : MonoBehaviour
                 // Add to meltable tilemap
                 meltableTilemap.SetTile(pos, iceBlockTile);
             }
-
 
             // Remove from my tilemap
             myTilemap.SetTile(pos, null);

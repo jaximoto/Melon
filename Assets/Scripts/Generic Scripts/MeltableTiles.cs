@@ -177,7 +177,7 @@ public class MeltableTiles : MonoBehaviour
         Bullet b;
         if (col.gameObject.TryGetComponent<Bullet>(out b))
         {
-            if (b.shotType == Bullet.ShotType.FIRE_SHOT)
+            if (b.shotType == Bullet.ShotType.FIRE_SHOT && b.gameObject.layer != 9) // Enemy bullet layer 9
             {
                 // Melt platform
                 MeltShot(col);
