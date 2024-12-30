@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using NUnit.Framework;
 using UnityEngine;
 
 public class Enemy : Shooter, IShootable
@@ -9,9 +10,8 @@ public class Enemy : Shooter, IShootable
 
     public EnemyManager enemyManager;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-
+    private Rigidbody2D rigidBody;
+    public Animator animator;
 
     public enum EnemyState
     {
@@ -25,26 +25,34 @@ public class Enemy : Shooter, IShootable
 
     public void OnEnable()
     {
-	    rb = GetComponent<Rigidbody2D>();	
+	    rigidBody = GetComponent<Rigidbody2D>();	
         animator = GetComponent<Animator>();
 
         if (gameObject.TryGetComponent<Elemental>(out _))
-            rb.bodyType = RigidbodyType2D.Static;
+            rigidBody.bodyType = RigidbodyType2D.Static;
         else
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            rigidBody.bodyType = RigidbodyType2D.Dynamic;
 
         animator.SetTrigger(ResetKey);
-
-		foreach (var param in animator.parameters)
-		{
-			if (param.type == AnimatorControllerParameterType.Trigger)
-			{
-				animator.ResetTrigger(param.name);
-			}
-		}
+        animator.ResetTrigger(ResetKey);
+        ResetAllTriggers(animator);
     }
 
-    
+
+    public void ResetAllTriggers(Animator animator)
+    {
+		foreach (var param in animator.parameters)
+		{
+            Debug.Log("param " + param.ToString());
+			if (param.type == AnimatorControllerParameterType.Trigger)
+			{
+                Debug.Log("GOING ");
+                animator.ResetTrigger(param.name);
+			}
+		}        
+    }
+
+
     public override void Start()
     {
         

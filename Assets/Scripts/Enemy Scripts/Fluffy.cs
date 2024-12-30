@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class Fluffy : Enemy
 {
-    Animator myAnimator;
     public Collider2D viewRadius;
-    bool aggroed = false;
-    bool dying = false;
+    public bool aggroed, dying, celebrating;
     int flipper = 1;
     SpriteRenderer spriteRenderer;
     Rigidbody2D myRigidbody2D;
-    bool celebrating = false;
+    
 
     public override void Start()
     {
         base.Start();
         player = null;//
+        aggroed = false;
+        dying = false;
+        celebrating = false;
+        flipper = 1;
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
-
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         //BounceEnemy.HitWall += FlipFluffy;
-        myAnimator = GetComponent<Animator>();    
+  
     }
 
 
@@ -58,7 +60,7 @@ public class Fluffy : Enemy
 
     public override void EnemyBehaviour()
     {
-        if (aggroed && myAnimator.GetBool(WalkKey))
+        if (aggroed && animator.GetBool(WalkKey))
         {
             Debug.Log("go");
             Walk(flipper);
@@ -81,14 +83,16 @@ public class Fluffy : Enemy
 
     public void Freeze()
     {
-        myAnimator.SetTrigger(FreezeKey);
+        ResetAllTriggers(animator);
+        animator.SetTrigger(FreezeKey);
         StartCoroutine("Die");
     }
 
 
     public void Melt()
     {
-        myAnimator.SetTrigger(BurnKey);
+        ResetAllTriggers(animator);
+        animator.SetTrigger(BurnKey);
         StartCoroutine("Die");
     }
 
@@ -106,6 +110,7 @@ public class Fluffy : Enemy
         GameObject hit = col.gameObject;
         if (hit.layer == 3 && !aggroed && !dying) 
         {
+            Debug.Log("aggroed");
             aggroed = true;
             if (hit.transform.position.x > transform.position.x)
             {
@@ -125,21 +130,28 @@ public class Fluffy : Enemy
 
     public override void HandleCollisionAnimation()
     {
-        celebrating = true;
-        Debug.Log("Handling?");
-        myAnimator.SetTrigger(CelebrateKey);
-        myAnimator.ResetTrigger(WalkKey);
-        myRigidbody2D.bodyType = RigidbodyType2D.Static;
+        if (!aggroed)
+        {
+            celebrating = true;
+            Debug.Log("Handling?");
+            ResetAllTriggers(animator);
+            animator.SetTrigger(CelebrateKey);
+            
+        }
+
     }
 
 
     IEnumerator Aggro()
     {
-        myAnimator.SetTrigger(SeenKey);
+        ResetAllTriggers(animator);
+        animator.SetTrigger(SeenKey);
+        
         Debug.Log("seenKey");
         yield return new WaitForSeconds(1);
-        myAnimator.SetTrigger(WalkKey);
-        myAnimator.ResetTrigger(SeenKey);
+        ResetAllTriggers(animator);
+        animator.SetTrigger(WalkKey);
+        
         Debug.Log("walkkey");
     }
 

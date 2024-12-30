@@ -35,12 +35,12 @@ public class Elemental : Enemy
     float maxY, minY;
     Vector3 moveDir = Vector3.up;
 
-    Rigidbody2D rb;
+    public Rigidbody2D _rb;
 
 
     public void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
 
         maxY = transform.position.y + offset;
         minY = transform.position.y - offset;
@@ -171,8 +171,8 @@ public class Elemental : Enemy
         dying = true;
         yield return new WaitForSeconds(comedyTime);
 
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 1;
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        _rb.gravityScale = 1;
         
         yield return new WaitForSeconds(deathTime);
         gameObject.SetActive(false);

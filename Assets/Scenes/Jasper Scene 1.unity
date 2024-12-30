@@ -545,14 +545,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 796545407}
-    - target: {fileID: 8105724345392635845, guid: 7d952b883c0f4482a93c3eeec663a23a, type: 3}
-      propertyPath: iceElementalPrefab
-      value: 
-      objectReference: {fileID: 3289006042486025507, guid: b925c7c8aadb7b540b4652d58c169480, type: 3}
-    - target: {fileID: 8105724345392635845, guid: 7d952b883c0f4482a93c3eeec663a23a, type: 3}
-      propertyPath: fireElementalPrefab
-      value: 
-      objectReference: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

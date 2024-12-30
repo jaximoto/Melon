@@ -209,8 +209,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
             _col.direction,
             0,
             Vector2.down,
-             _stats.GrounderDistance
-            //~_stats.PlayerLayer & ~(1 << LayerMask.NameToLayer("OneWay"))
+             _stats.GrounderDistance,
+             ~coyoteIgnoreLayers.value
+        //~_stats.PlayerLayer & ~(1 << LayerMask.NameToLayer("OneWay"))
         );
 
         bool ceilingHit = Physics2D.CapsuleCast(
