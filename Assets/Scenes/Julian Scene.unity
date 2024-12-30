@@ -138,18 +138,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: myState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: deathTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: enemyManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental
@@ -207,50 +195,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: myState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: shotType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: deathTime
-      value: 0.47
-      objectReference: {fileID: 0}
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: enemyManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: defaultDirection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380908596570822330, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.70666665
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380908596570822330, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.70666665
-      objectReference: {fileID: 0}
-    - target: {fileID: 1535186498165847264, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.70666665
-      objectReference: {fileID: 0}
-    - target: {fileID: 1535186498165847264, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.70666665
-      objectReference: {fileID: 0}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 5795900950803183265, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6402620612133560363, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
     - target: {fileID: 8097340986470273926, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.24
@@ -490,10 +438,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 538925607}
     - target: {fileID: 8105724345392635845, guid: 7d952b883c0f4482a93c3eeec663a23a, type: 3}
-      propertyPath: fluffyPrefab
-      value: 
-      objectReference: {fileID: -8930033209099493362, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
-    - target: {fileID: 8105724345392635845, guid: 7d952b883c0f4482a93c3eeec663a23a, type: 3}
       propertyPath: iceElementalPrefab
       value: 
       objectReference: {fileID: 2228095}
@@ -659,14 +603,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8930033209099493362, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
-      propertyPath: myState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8930033209099493362, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
-      propertyPath: enemyManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.83
