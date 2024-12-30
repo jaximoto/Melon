@@ -32,42 +32,11 @@ public class EnemyManager : MonoBehaviour
 
     void RespawnEnemies()
     {
-        List<Vector3> toDestroy = new();
-        Debug.Log($"SIZE OF DEST: {destroyed.Count}");
-        foreach(KeyValuePair<Vector3, GameObject> kvp in destroyed)
+        foreach(KeyValuePair<GameObject, Vector3> kvp in enemyPositions)
         {
-            Debug.Log($"NEW: {enemyPositions[kvp.Value]}");
-            kvp.Value.transform.position = enemyPositions[kvp.Value];
-            toDestroy.Add(kvp.Key);
-
-            var oldPos = enemyPositions[kvp.Value];
-
-            if (kvp.Value.TryGetComponent<Fluffy>(out _))
-            {
-                var newEnemy = Instantiate(fluffyPrefab, oldPos, Quaternion.identity);
-                newEnemy.transform.position = oldPos;
-            }
-            else {
-                var elemental = kvp.Value.GetComponent<Elemental>();
-                if (elemental.myState == Enemy.EnemyState.Fire)
-                {
-                    var newEnemy = Instantiate(fireElementalPrefab, oldPos, Quaternion.identity);
-                    newEnemy.transform.position = oldPos;
-                }
-                else if (elemental.myState == Enemy.EnemyState.Frozen)
-                {
-                    var newEnemy = Instantiate(iceElementalPrefab, oldPos, Quaternion.identity);
-                    newEnemy.transform.position = oldPos;
-                }
-            }
-            Destroy(kvp.Value);
+            kvp.Key.gameObject.SetActive(true);
+            kvp.Key.transform.position = kvp.Value;
         }
-
-        foreach(var key in toDestroy)
-        {
-            destroyed.Remove(key);
-        }
-
     }
 
 

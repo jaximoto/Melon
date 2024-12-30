@@ -339,8 +339,8 @@ public class MeltableTiles : MonoBehaviour
     {
         TileBase t = tilemap.GetTile(tilePos);
 
-        // Only regen platforms
-        if (t.name.Contains("Floating"))
+        // Only regen platforms and spikes
+        if (t.name.Contains("Floating") || t.name.Contains("Stalagmite") || t.name.Contains("Falling"))
         {
             meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
         }
