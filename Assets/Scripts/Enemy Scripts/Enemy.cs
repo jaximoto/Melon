@@ -47,6 +47,7 @@ public class Enemy : Shooter, IShootable
     
     public override void Start()
     {
+        
         Debug.Log($"OLD: {this.gameObject.transform.position}");
         base.Start();
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();

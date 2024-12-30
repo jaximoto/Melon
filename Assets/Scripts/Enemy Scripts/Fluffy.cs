@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fluffy : Enemy
 {
-    Animator animator;
+    Animator myAnimator;
     public Collider2D viewRadius;
     bool aggroed = false;
     bool dying = false;
@@ -22,7 +22,7 @@ public class Fluffy : Enemy
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         //BounceEnemy.HitWall += FlipFluffy;
-        animator = GetComponent<Animator>();    
+        myAnimator = GetComponent<Animator>();    
     }
 
 
@@ -58,7 +58,7 @@ public class Fluffy : Enemy
 
     public override void EnemyBehaviour()
     {
-        if (aggroed && animator.GetBool(WalkKey))
+        if (aggroed && myAnimator.GetBool(WalkKey))
         {
             Debug.Log("go");
             Walk(flipper);
@@ -81,14 +81,14 @@ public class Fluffy : Enemy
 
     public void Freeze()
     {
-        animator.SetTrigger(FreezeKey);
+        myAnimator.SetTrigger(FreezeKey);
         StartCoroutine("Die");
     }
 
 
     public void Melt()
     {
-        animator.SetTrigger(BurnKey);
+        myAnimator.SetTrigger(BurnKey);
         StartCoroutine("Die");
     }
 
@@ -127,19 +127,19 @@ public class Fluffy : Enemy
     {
         celebrating = true;
         Debug.Log("Handling?");
-        animator.SetTrigger(CelebrateKey);
-        animator.ResetTrigger(WalkKey);
+        myAnimator.SetTrigger(CelebrateKey);
+        myAnimator.ResetTrigger(WalkKey);
         myRigidbody2D.bodyType = RigidbodyType2D.Static;
     }
 
 
     IEnumerator Aggro()
     {
-        animator.SetTrigger(SeenKey);
+        myAnimator.SetTrigger(SeenKey);
         Debug.Log("seenKey");
         yield return new WaitForSeconds(1);
-        animator.SetTrigger(WalkKey);
-        animator.ResetTrigger(SeenKey);
+        myAnimator.SetTrigger(WalkKey);
+        myAnimator.ResetTrigger(SeenKey);
         Debug.Log("walkkey");
     }
 
