@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     public event Action Shot;
     public event Action Death;
     public event Action AfterDeath;
-
+    public event Action OnShoot;
 
 
     public event Action<Mode> Switch;
@@ -291,7 +291,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     private void HandleShot()
     {
         if (_frameInput.ShotHeld)
+        {
             Shot?.Invoke();
+            OnShoot?.Invoke();
+        }
+            
         else
             return;
     }
@@ -386,6 +390,7 @@ public interface IPlayerController
 
     public event Action Death;
     public event Action AfterDeath;
+    public event Action OnShoot;
     public Vector2 FrameInput { get; }
 
     public event Action Shot;
