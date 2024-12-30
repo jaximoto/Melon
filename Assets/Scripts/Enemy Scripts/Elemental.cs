@@ -118,13 +118,11 @@ public class Elemental : Enemy
             if (hit.transform.position.x > transform.position.x)
             {
                 flipper = -1;
-                defaultDirection = DefaultDirection.RIGHT;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             }
             else if (hit.transform.position.x < transform.position.x)
             {
                 flipper = 1;
-                defaultDirection = DefaultDirection.LEFT;
             }
             Aggro();
         }

@@ -36,10 +36,12 @@ public class Enemy : Shooter, IShootable
     {
         if (spawnedOnce)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = lastTransform.localScale;
         }
-        defaultDirection = lastDirection;
+        lastTransform = transform;
         spawnedOnce = true;
+
+
         flipper = lastFlipper * -1;
         rigidBody = GetComponent<Rigidbody2D>();	
         animator = GetComponent<Animator>();
