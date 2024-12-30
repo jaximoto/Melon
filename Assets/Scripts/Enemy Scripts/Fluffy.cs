@@ -8,17 +8,40 @@ public class Fluffy : Enemy
     public Collider2D viewRadius;
     bool aggroed = false;
     bool dying = false;
-    
+    int flipper = 1;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        //BounceEnemy.HitWall += FlipFluffy;
         animator = GetComponent<Animator>();    
     }
 
-    
+    private void OnDisable()
+    {
+        //BounceEnemy.HitWall -= FlipFluffy;   
+    }
     void Update()
     {
         EnemyBehaviour();
+    }
+
+    public void FlipFluffy()
+    {
+        Debug.Log("FLIP");
+        if (flipper == 1)
+        {
+            flipper = -1;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            //spriteRenderer.flipY = true;
+        }
+        else
+        {
+            flipper = 1;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            //spriteRenderer.flipY = false;
+        }
     }
 
     public override void EnemyBehaviour()
@@ -26,7 +49,7 @@ public class Fluffy : Enemy
         if (aggroed && animator.GetBool(WalkKey))
         {
             Debug.Log("go");
-            Walk();
+            Walk(flipper);
         }
     }
 
@@ -57,10 +80,10 @@ public class Fluffy : Enemy
     }
 
 
-    public void Walk()
+    public void Walk(int flipper)
     {
         
-        transform.Translate(moveSpeed * Vector2.left * Time.deltaTime);
+        transform.Translate(moveSpeed * flipper * Vector2.left * Time.deltaTime);
         Debug.Log(moveSpeed * Vector2.left * Time.deltaTime);
     }
 
@@ -73,10 +96,13 @@ public class Fluffy : Enemy
             aggroed = true;
             if (hit.transform.position.x > transform.position.x)
             {
+                flipper = -1;
                 defaultDirection = DefaultDirection.RIGHT;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             }
             else if (hit.transform.position.x < transform.position.x)
             {
+                flipper = 1;
                 defaultDirection = DefaultDirection.LEFT;
             }
             StartCoroutine("Aggro");
