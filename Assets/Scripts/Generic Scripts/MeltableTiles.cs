@@ -281,7 +281,13 @@ public class MeltableTiles : MonoBehaviour
 
     public void DoMelt(Vector3Int tilePos)
     {
-        meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
+        TileBase t = tilemap.GetTile(tilePos);
+
+        // Only regen platforms
+        if (t.name.Contains("Floating"))
+        {
+            meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
+        }
 
         tilemap.SetTile(tilePos, null);
         tilemap.RefreshTile(tilePos);
