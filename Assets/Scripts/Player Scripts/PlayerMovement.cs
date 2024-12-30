@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public enum Mode
 {
@@ -34,9 +35,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 
     private Checkpoint checkpoint;
 
-
+    public TilemapCollider2D oneWayCollider;
+    
     private void Awake()
     {
+        //oneWayCollider.excludeLayers.
+        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), oneWayCollider);
+        //Physics2D.IgnoreLayerCollision(3, 10);
+
         _rb = GetComponent<Rigidbody2D>();
         _col = GetComponent<CapsuleCollider2D>();
         _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
@@ -48,6 +54,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     // Update is called once per frame
     void Update()
     {
+        
         _time += Time.deltaTime;
 
         GatherInput();
@@ -55,8 +62,25 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
         HandleSwitch();
 
         HandleShot();
-    }
 
+        //GoingUp();
+    }
+    public void GoingUp()
+    {
+        //If y is increasing, dissallow upward movement
+        if (_frameVelocity.y > 0 && !_grounded)
+        {
+            Debug.Log("going up");
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), oneWayCollider);
+        }
+        Debug.Log("Collisions between player and oneway: " + Physics2D.GetIgnoreLayerCollision(3, 10));
+        /*
+        else 
+        {
+            Physics.IgnoreLayerCollision(3, 10, false);
+        } 
+        */
+    }
 
     public void HandleDeath()
     {
@@ -142,8 +166,25 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
         Physics2D.queriesStartInColliders = false;
 
         // Ground and Ceiling
-        bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
-        bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
+        bool groundHit = Physics2D.CapsuleCast(
+            _col.bounds.center,
+            _col.size,
+            _col.direction,
+            0,
+            Vector2.down,
+             _stats.GrounderDistance
+            //~_stats.PlayerLayer & ~(1 << LayerMask.NameToLayer("OneWay"))
+        );
+
+        bool ceilingHit = Physics2D.CapsuleCast(
+            _col.bounds.center,
+            _col.size,
+            _col.direction,
+            0,
+            Vector2.up,
+            _stats.GrounderDistance,
+            ~_stats.PlayerLayer & ~(1 << LayerMask.NameToLayer("OneWay"))
+        );
 
         // Hit a Ceiling
         if (ceilingHit) _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
