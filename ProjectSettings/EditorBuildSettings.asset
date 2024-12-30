@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: eefa2a7fed85eb547bfb063f55006379
+  - enabled: 1
+    path: Assets/Scenes/Jaxon Scene.unity
+    guid: 3d95ef4251c9c974db2d305a25cbd671
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
