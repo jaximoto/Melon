@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
         destroyed = new();
         enemyPositions = new();
 
-        player.Death += RespawnEnemies;
+        player.AfterDeath += RespawnEnemies;
     }
 
     // Update is called once per frame
