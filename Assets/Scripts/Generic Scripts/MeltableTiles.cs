@@ -70,30 +70,29 @@ public class MeltableTiles : MonoBehaviour
     void Update()
     {
         UpdateMeltedTiles();
+        UpdateMeltingTiles();
     }
 
 
-    void UpdateMeltingTile(Vector3Int pos)
+    void UpdateMeltingTiles()
     {
-        //Using dictionary would be better for this, but this list should always be small so this is fine
-        MeltingTile meltingTile = new();
-        bool found = false;
-        foreach (var tile in meltingTiles)
+        List<MeltingTile> toDelete = new();
+        for(int i=0; i<meltingTiles.Count; i++)
         {
-            if (tile.pos == pos)
+            var meltingTile = meltingTiles[i];
+
+            meltingTile.timeMelting += Time.deltaTime;
+
+            if (meltingTile.ShouldMelt())
             {
-                meltingTile = tile;
-                found = true;
-                break;
+                //tilemap.SetTile(meltingTile.pos, meltingTile.tile);
+                DoMelt(meltingTile.pos);
+                toDelete.Add(meltingTile);
             }
         }
-        if (!found) return;
 
-        meltingTile.timeMelting += Time.deltaTime;
-
-        if (meltingTile.ShouldMelt())
+        foreach(var meltingTile in toDelete)
         {
-            DoMelt(meltingTile.pos);
             meltingTiles.Remove(meltingTile);
         }
     }
@@ -146,6 +145,7 @@ public class MeltableTiles : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D col)
     {
+        /*
         PlayerMovement player;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
         {
@@ -156,16 +156,19 @@ public class MeltableTiles : MonoBehaviour
             }
 
         }
+        */
     }
 
 
     public void OnCollisionExit2D(Collision2D col)
     {
+        /*
         PlayerMovement player;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
         {
             RemoveMeltingTile(col);
         }
+        */
     }
 
 
@@ -261,9 +264,7 @@ public class MeltableTiles : MonoBehaviour
             Vector3Int offset = new Vector3Int(i, 0, 0);
 
             //DoMelt(tilePos + offset);
-            if (FindMeltingTile(tilePos + offset)!=-1)
-                UpdateMeltingTile(tilePos+offset);
-            else
+            if (FindMeltingTile(tilePos + offset)==-1)
                 AddMeltingTile(tilePos + offset);
         }
 
