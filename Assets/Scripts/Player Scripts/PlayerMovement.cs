@@ -56,12 +56,15 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
     {
         
         _time += Time.deltaTime;
+        if (_time > .5f)
+        {
+            GatherInput();
 
-        GatherInput();
+            HandleSwitch();
 
-        HandleSwitch();
-
-        HandleShot();
+            HandleShot();
+        }
+       
 
         //GoingUp();
     }
