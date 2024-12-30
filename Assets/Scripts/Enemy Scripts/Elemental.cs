@@ -91,7 +91,7 @@ public class Elemental : Enemy
 
     public void Freeze()
     {
-        
+        ResetAllTriggers(myAnimator);
         myAnimator.SetTrigger(DieKey);
         StartCoroutine("WaitAndDie");
         
@@ -101,6 +101,7 @@ public class Elemental : Enemy
     public void Melt()
     {
         Debug.Log("hit");
+        ResetAllTriggers(myAnimator);
         myAnimator.SetTrigger(DieKey);
         StartCoroutine("WaitAndDie");
     }
@@ -111,8 +112,20 @@ public class Elemental : Enemy
         GameObject hit = col.gameObject;
         if (hit.layer == 3 && !aggroed && !dying)
         {
+            ResetAllTriggers(myAnimator);
             myAnimator.SetTrigger(AggroKey);
             aggroed = true;
+            if (hit.transform.position.x > transform.position.x)
+            {
+                flipper = -1;
+                defaultDirection = DefaultDirection.RIGHT;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
+            else if (hit.transform.position.x < transform.position.x)
+            {
+                flipper = 1;
+                defaultDirection = DefaultDirection.LEFT;
+            }
             Aggro();
         }
     }
@@ -128,8 +141,8 @@ public class Elemental : Enemy
         Vector3 offset = direction * 0.75f;
         if (timeSinceLastShot >= fireRate * anticipation && !anticipating)
         {
+            ResetAllTriggers(myAnimator);
             myAnimator.SetTrigger(ShootKey);
-            myAnimator.ResetTrigger(AggroKey);
             StartCoroutine("WaitAndReset");
         }
         if (timeSinceLastShot >= fireRate)
@@ -160,8 +173,9 @@ public class Elemental : Enemy
     IEnumerator WaitAndReset()
     {
         yield return new WaitForSeconds(chargeTime);
+        ResetAllTriggers(myAnimator);
         myAnimator.SetTrigger(AggroKey);
-        myAnimator.ResetTrigger(ShootKey);
+
     }
 
 

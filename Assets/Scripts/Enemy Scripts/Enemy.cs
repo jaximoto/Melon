@@ -21,6 +21,7 @@ public class Enemy : Shooter, IShootable
     public List<AnimatorControllerParameter> parameters = new List<AnimatorControllerParameter>();
 
     private Transform lastTransform;
+    
     public enum EnemyState
     {
         Frozen,
@@ -30,13 +31,14 @@ public class Enemy : Shooter, IShootable
 
     
     public EnemyState myState;
-
+    public DefaultDirection lastDirection;
     public void OnEnable()
     {
         if (spawnedOnce)
         {
-            transform.localScale = new Vector3(lastTransform.localScale.x, lastTransform.localScale.y, lastTransform.localScale.z);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
+        defaultDirection = lastDirection;
         spawnedOnce = true;
         flipper = lastFlipper * -1;
         rigidBody = GetComponent<Rigidbody2D>();	

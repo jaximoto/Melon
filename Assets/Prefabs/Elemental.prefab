@@ -149,7 +149,14 @@ MonoBehaviour:
   shooterType: 1
   moveSpeed: 0.1
   health: 1
+  flipper: 0
+  lastFlipper: 0
+  aggroed: 0
+  dying: 0
+  celebrating: 0
+  spawnedOnce: 0
   enemyManager: {fileID: 0}
+  animator: {fileID: 0}
   myState: 1
   redElemental: {fileID: -362520821754183364, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
   blueElemental: {fileID: -6642664634949828623, guid: 36273f2d957a7ff40b59cfceeeeca821, type: 3}
@@ -163,7 +170,8 @@ MonoBehaviour:
   anticipation: 0.85
   offset: 0.05
   deathTime: 0.2
-  comedyTime: 1
+  comedyTime: 0.75
+  rigidBody: {fileID: 0}
 --- !u!50 &3926351435532948577
 Rigidbody2D:
   serializedVersion: 5
