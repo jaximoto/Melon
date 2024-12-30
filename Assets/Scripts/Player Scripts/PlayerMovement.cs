@@ -194,6 +194,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
 
     #region Collisions
 
+    public LayerMask coyoteIgnoreLayers; // Public LayerMask to select layers to ignore
     private float _frameLeftGrounded = float.MinValue;
     private bool _grounded;
 
@@ -219,7 +220,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerController, IShootable
             0,
             Vector2.up,
             _stats.GrounderDistance,
-            ~_stats.PlayerLayer & ~(1 << LayerMask.NameToLayer("OneWay"))
+            //~_stats.PlayerLayer & ~(1 << LayerMask.NameToLayer("OneWay")) & ~(1 << LayerMask.NameToLayer("Enemy"))
+            ~coyoteIgnoreLayers.value // Invert the LayerMask to ignore selected layers
         );
 
         // Hit a Ceiling
