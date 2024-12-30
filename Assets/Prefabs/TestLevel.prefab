@@ -142568,7 +142568,7 @@ PrefabInstance:
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: firingPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 123816347062455286}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental (8)
@@ -142618,6 +142618,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+--- !u!1 &123816347062455286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074254468627397553, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+  m_PrefabInstance: {fileID: 1107717217168011335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9151576441914631105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8097340986470273926, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
@@ -143580,7 +143585,7 @@ PrefabInstance:
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: firingPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5066991640422545259}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental
@@ -143633,6 +143638,11 @@ PrefabInstance:
 --- !u!4 &4100138283607957340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8097340986470273926, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+  m_PrefabInstance: {fileID: 5240244596921535706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5066991640422545259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074254468627397553, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
   m_PrefabInstance: {fileID: 5240244596921535706}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5561718338400454900
@@ -143968,7 +143978,7 @@ PrefabInstance:
     - target: {fileID: 3289006042486025507, guid: b925c7c8aadb7b540b4652d58c169480, type: 3}
       propertyPath: firingPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7042208503949120724}
     - target: {fileID: 5526070569749631206, guid: b925c7c8aadb7b540b4652d58c169480, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.106657684
@@ -144021,6 +144031,11 @@ PrefabInstance:
 --- !u!4 &3422834092035648722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5526070569749631206, guid: b925c7c8aadb7b540b4652d58c169480, type: 3}
+  m_PrefabInstance: {fileID: 7147444190678055988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7042208503949120724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 182995902927218912, guid: b925c7c8aadb7b540b4652d58c169480, type: 3}
   m_PrefabInstance: {fileID: 7147444190678055988}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7807108815900585614
