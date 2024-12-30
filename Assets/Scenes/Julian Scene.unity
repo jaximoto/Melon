@@ -149,7 +149,7 @@ PrefabInstance:
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: enemyManager
       value: 
-      objectReference: {fileID: 686365593}
+      objectReference: {fileID: 0}
     - target: {fileID: 3316821778490586099, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: m_Name
       value: Elemental
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: enemyManager
       value: 
-      objectReference: {fileID: 686365593}
+      objectReference: {fileID: 0}
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: defaultDirection
       value: 0
@@ -640,17 +640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4189c5aff7ea1d8469bc619f01e985a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &686365593 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8105724345392635845, guid: 7d952b883c0f4482a93c3eeec663a23a, type: 3}
-  m_PrefabInstance: {fileID: 208854139}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f010fb5ac43c34348a5a4ef4b5a9603d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1326025333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
@@ -677,7 +666,7 @@ PrefabInstance:
     - target: {fileID: -8930033209099493362, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
       propertyPath: enemyManager
       value: 
-      objectReference: {fileID: 686365593}
+      objectReference: {fileID: 0}
     - target: {fileID: 250279981280597802, guid: e0ccdddd4351b6a429e70e2f0f14abdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.83
