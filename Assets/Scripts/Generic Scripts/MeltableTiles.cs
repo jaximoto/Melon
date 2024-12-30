@@ -245,7 +245,7 @@ public class MeltableTiles : MonoBehaviour
     {
         // Get tile, destroy it if it exists in the tilemap
         Vector3Int tilePos = GetPos(col);
-        DoMelt(tilePos);
+        DoMeltPropogate(tilePos);
     }
 
 
@@ -278,6 +278,62 @@ public class MeltableTiles : MonoBehaviour
     }
 
 
+    public List<Vector3Int> PropogateMelt(Vector3Int nexus)
+    {
+
+        List<Vector3Int> result = new();
+
+        var offsetArr = new (int, int)[]
+        {
+            (1, 0),
+            (-1, 0),
+            (0, 1),
+            (0, -1)
+        };
+
+        Stack<Vector3Int> s = new();
+        s.Push(nexus);
+
+        int tilesMelted = 0;
+        int maxTilesMelted = 5;
+
+        while (s.Count > 0 && tilesMelted < maxTilesMelted)
+        {
+            // Check plus shape around nexus for more tiles
+            var curr = s.Pop();
+            result.Add(curr);
+            tilesMelted++;
+            
+            for (int i=0; i<4; i++)
+            {
+                if (tilesMelted > maxTilesMelted)
+                    break;
+
+                Vector3Int currPos = curr + new Vector3Int(offsetArr[i].Item1, offsetArr[i].Item2, 0);
+
+                if (result.Contains(currPos))
+                    continue;
+
+                if (tilemap.HasTile(currPos))
+                {
+                    s.Push(currPos);
+                }
+            }
+        }
+        
+        return result;
+    }
+
+
+    public void DoMeltPropogate(Vector3Int nexus)
+    {
+        var meltingTiles = PropogateMelt(nexus);
+        foreach (var tile in meltingTiles)
+        {
+            DoMelt(tile);
+        }
+    }
+
 
     public void DoMelt(Vector3Int tilePos)
     {
@@ -287,6 +343,10 @@ public class MeltableTiles : MonoBehaviour
         if (t.name.Contains("Floating"))
         {
             meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
+        }
+        else
+        {
+            // Propogate melt
         }
 
         tilemap.SetTile(tilePos, null);

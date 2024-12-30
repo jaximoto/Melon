@@ -108,7 +108,6 @@ public class FreezableTiles : MonoBehaviour
             // Check plus shape around nexus for more tiles
             var curr = s.Pop();
             result.Add(curr);
-            Debug.Log(curr);
             tilesFrozen++;
             
             for (int i=0; i<4; i++)
