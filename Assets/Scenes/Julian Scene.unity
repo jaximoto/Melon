@@ -143,6 +143,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: deathTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: enemyManager
       value: 
       objectReference: {fileID: 686365593}
@@ -210,6 +214,10 @@ PrefabInstance:
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: shotType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
+      propertyPath: deathTime
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: -3954471808626976680, guid: 5379ddc4dc0fded46b9195f5805f2811, type: 3}
       propertyPath: enemyManager

@@ -9,6 +9,9 @@ public class Enemy : Shooter, IShootable
 
     public EnemyManager enemyManager;
 
+    private Rigidbody2D rb;
+    private Animator animator;
+
 
     public enum EnemyState
     {
@@ -20,6 +23,27 @@ public class Enemy : Shooter, IShootable
 
     public EnemyState myState;
 
+    public void OnEnable()
+    {
+	    rb = GetComponent<Rigidbody2D>();	
+        animator = GetComponent<Animator>();
+
+        if (gameObject.TryGetComponent<Elemental>(out _))
+            rb.bodyType = RigidbodyType2D.Static;
+        else
+            rb.bodyType = RigidbodyType2D.Dynamic;
+
+        animator.SetTrigger(ResetKey);
+
+		foreach (var param in animator.parameters)
+		{
+			if (param.type == AnimatorControllerParameterType.Trigger)
+			{
+				animator.ResetTrigger(param.name);
+			}
+		}
+    }
+
     
     public override void Start()
     {
@@ -28,14 +52,9 @@ public class Enemy : Shooter, IShootable
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         Debug.Log("Called find");
 
-        /*
-        if (enemyManager.enemyPositions == null)
-            enemyManager.enemyPositions = new();
-            */
-
         enemyManager.enemyPositions[this.gameObject] = new Vector3(this.gameObject.transform.position.x,    
                                                                     this.gameObject.transform.position.y,
-                                                                    0);
+																		0.0f);
     }
 
 
@@ -93,5 +112,6 @@ public class Enemy : Shooter, IShootable
 
     }
 
+    private static readonly int ResetKey = Animator.StringToHash("Reset");
 
 }
