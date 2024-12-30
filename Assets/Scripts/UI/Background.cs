@@ -21,7 +21,7 @@ public class Background : MonoBehaviour
             transition1Triggered = true; // Prevent multiple triggers
         }
 
-        else if (!transition1Triggered && player.position.y > heightThreshold2)
+        else if (!transition2Triggered && player.position.y > heightThreshold2)
         {
             TransitionToNextBackground();
             transition2Triggered = true; // Prevent multiple triggers
