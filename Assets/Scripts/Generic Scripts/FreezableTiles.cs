@@ -35,6 +35,11 @@ public class FreezableTiles : MonoBehaviour
             }
             Destroy(b.gameObject);
         }
+    }
+
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
 
         PlayerMovement p;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out p))
@@ -44,7 +49,6 @@ public class FreezableTiles : MonoBehaviour
                 p.HandleDeath();
             }
         }
-
     }
 
 

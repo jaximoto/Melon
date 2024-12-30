@@ -7,19 +7,21 @@ public class MeltableTiles : MonoBehaviour
 {
     public Tilemap tilemap;
 
-    static public float regenTime = 1.0f; //seconds
-    static public float meltTime = 1.0f; //seconds
+    [Range(0, 5)] public float regenTime = 1.0f; //seconds
+    [Range(0, 5)] public float meltTime = 1.0f; //seconds
 
     private class MeltedTile
     {
+        public float regenTime;
         public float timeSinceMelted = 0.0f;
         public Vector3Int pos {get; set;}
         public TileBase tile {get; set;}
 
-        public MeltedTile(Vector3Int pos, TileBase tile)
+        public MeltedTile(Vector3Int pos, TileBase tile, float regenTime)
         {
             this.pos = pos;
             this.tile = tile;
+            this.regenTime = regenTime;
         }
 
         public bool ShouldRegen()
@@ -32,16 +34,18 @@ public class MeltableTiles : MonoBehaviour
     //This is basically the same as melted tile
     private class MeltingTile
     {
+        public float meltTime;
         public float timeMelting = 0.0f;
         public Vector3Int pos {get; set;}
         public TileBase tile {get; set;}
 
-        public MeltingTile() {this.pos=Vector3Int.zero; this.tile=null;}
+        public MeltingTile() {this.pos=Vector3Int.zero; this.tile=null; this.meltTime=0.0f;}
 
-        public MeltingTile(Vector3Int pos, TileBase tile)
+        public MeltingTile(Vector3Int pos, TileBase tile, float meltTime)
         {
             this.pos = pos;
             this.tile = tile;
+            this.meltTime = meltTime;
         }
 
         public bool ShouldMelt()
@@ -269,14 +273,14 @@ public class MeltableTiles : MonoBehaviour
     public void AddMeltingTile(Vector3Int tilePos)
     {
         if (tilemap.HasTile(tilePos))
-            meltingTiles.Add(new MeltingTile( tilePos, tilemap.GetTile(tilePos)) );
+            meltingTiles.Add(new MeltingTile( tilePos, tilemap.GetTile(tilePos), meltTime) );
     }
 
 
 
     public void DoMelt(Vector3Int tilePos)
     {
-        meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos)) );
+        meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
 
         tilemap.SetTile(tilePos, null);
         tilemap.RefreshTile(tilePos);
