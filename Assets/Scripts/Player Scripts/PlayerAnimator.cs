@@ -39,10 +39,21 @@ public class PlayerAnimator : MonoBehaviour
         _player.GroundedChanged += OnGroundedChanged;
         _player.Falling += OnFall;
         _player.Switch += OnSwitch;
+        _player.Death += OnDeath;
+        _player.AfterDeath += AfterDeath;
 
         
     }
 
+    public void OnDeath()
+    {
+        _anim.SetTrigger(DeathKey);
+    }
+
+    public void AfterDeath()
+    {
+        _anim.ResetTrigger(DeathKey);
+    }
     private void OnDisable()
     {
         _player.Jumped -= OnJumped;
@@ -68,6 +79,7 @@ public class PlayerAnimator : MonoBehaviour
         
     }
 
+    
     private void HandleSpriteFlip()
     {
         if (_player.FrameInput.x != 0) _sprite.flipX = _player.FrameInput.x > 0;
@@ -156,5 +168,8 @@ public class PlayerAnimator : MonoBehaviour
     // Change walk key  it isnt found TODOOO
     private static readonly int WalkKey = Animator.StringToHash("Moving");
     private static readonly int FallKey = Animator.StringToHash("AtApex");
+    private static readonly int DeathKey = Animator.StringToHash("Death");
+
+
 
 }
