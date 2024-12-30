@@ -70,30 +70,29 @@ public class MeltableTiles : MonoBehaviour
     void Update()
     {
         UpdateMeltedTiles();
+        UpdateMeltingTiles();
     }
 
 
-    void UpdateMeltingTile(Vector3Int pos)
+    void UpdateMeltingTiles()
     {
-        //Using dictionary would be better for this, but this list should always be small so this is fine
-        MeltingTile meltingTile = new();
-        bool found = false;
-        foreach (var tile in meltingTiles)
+        List<MeltingTile> toDelete = new();
+        for(int i=0; i<meltingTiles.Count; i++)
         {
-            if (tile.pos == pos)
+            var meltingTile = meltingTiles[i];
+
+            meltingTile.timeMelting += Time.deltaTime;
+
+            if (meltingTile.ShouldMelt())
             {
-                meltingTile = tile;
-                found = true;
-                break;
+                //tilemap.SetTile(meltingTile.pos, meltingTile.tile);
+                DoMelt(meltingTile.pos);
+                toDelete.Add(meltingTile);
             }
         }
-        if (!found) return;
 
-        meltingTile.timeMelting += Time.deltaTime;
-
-        if (meltingTile.ShouldMelt())
+        foreach(var meltingTile in toDelete)
         {
-            DoMelt(meltingTile.pos);
             meltingTiles.Remove(meltingTile);
         }
     }
@@ -146,6 +145,7 @@ public class MeltableTiles : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D col)
     {
+        /*
         PlayerMovement player;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
         {
@@ -156,16 +156,19 @@ public class MeltableTiles : MonoBehaviour
             }
 
         }
+        */
     }
 
 
     public void OnCollisionExit2D(Collision2D col)
     {
+        /*
         PlayerMovement player;
         if (col.gameObject.TryGetComponent<PlayerMovement>(out player))
         {
             RemoveMeltingTile(col);
         }
+        */
     }
 
 
@@ -242,7 +245,7 @@ public class MeltableTiles : MonoBehaviour
     {
         // Get tile, destroy it if it exists in the tilemap
         Vector3Int tilePos = GetPos(col);
-        DoMelt(tilePos);
+        DoMeltPropogate(tilePos);
     }
 
 
@@ -261,9 +264,7 @@ public class MeltableTiles : MonoBehaviour
             Vector3Int offset = new Vector3Int(i, 0, 0);
 
             //DoMelt(tilePos + offset);
-            if (FindMeltingTile(tilePos + offset)!=-1)
-                UpdateMeltingTile(tilePos+offset);
-            else
+            if (FindMeltingTile(tilePos + offset)==-1)
                 AddMeltingTile(tilePos + offset);
         }
 
@@ -277,10 +278,76 @@ public class MeltableTiles : MonoBehaviour
     }
 
 
+    public List<Vector3Int> PropogateMelt(Vector3Int nexus)
+    {
+
+        List<Vector3Int> result = new();
+
+        var offsetArr = new (int, int)[]
+        {
+            (1, 0),
+            (-1, 0),
+            (0, 1),
+            (0, -1)
+        };
+
+        Stack<Vector3Int> s = new();
+        s.Push(nexus);
+
+        int tilesMelted = 0;
+        int maxTilesMelted = 5;
+
+        while (s.Count > 0 && tilesMelted < maxTilesMelted)
+        {
+            // Check plus shape around nexus for more tiles
+            var curr = s.Pop();
+            result.Add(curr);
+            tilesMelted++;
+            
+            for (int i=0; i<4; i++)
+            {
+                if (tilesMelted > maxTilesMelted)
+                    break;
+
+                Vector3Int currPos = curr + new Vector3Int(offsetArr[i].Item1, offsetArr[i].Item2, 0);
+
+                if (result.Contains(currPos))
+                    continue;
+
+                if (tilemap.HasTile(currPos))
+                {
+                    s.Push(currPos);
+                }
+            }
+        }
+        
+        return result;
+    }
+
+
+    public void DoMeltPropogate(Vector3Int nexus)
+    {
+        var meltingTiles = PropogateMelt(nexus);
+        foreach (var tile in meltingTiles)
+        {
+            DoMelt(tile);
+        }
+    }
+
 
     public void DoMelt(Vector3Int tilePos)
     {
-        meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
+        TileBase t = tilemap.GetTile(tilePos);
+
+        // Only regen platforms
+        if (t.name.Contains("Floating"))
+        {
+            meltedTiles.Add(new MeltedTile( tilePos, tilemap.GetTile(tilePos), regenTime) );
+        }
+        else
+        {
+            // Propogate melt
+        }
 
         tilemap.SetTile(tilePos, null);
         tilemap.RefreshTile(tilePos);
