@@ -16,6 +16,7 @@ public class Fluffy : Enemy
     public override void Start()
     {
         base.Start();
+        player = null;//
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
 
