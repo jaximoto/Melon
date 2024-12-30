@@ -68,7 +68,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_Radius: 6
 --- !u!114 &2308452361238149407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   shooterType: 0
   moveSpeed: 5
   health: 1
-  myState: 0
+  myState: 2
   viewRadius: {fileID: 0}
 --- !u!95 &4720910370228526667
 Animator:
@@ -251,7 +251,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7153858559750677249
 BoxCollider2D:
   m_ObjectHideFlags: 0

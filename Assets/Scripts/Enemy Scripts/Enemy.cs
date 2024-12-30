@@ -1,12 +1,10 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class Enemy : Shooter, IShootable 
+public class Enemy : Shooter, IShootable
 {
     public float moveSpeed;
     public int health;
-    Animator enemyAnimator;
-    Rigidbody2D myRigidbody2D;
     //shooter variables
 
     public enum EnemyState
@@ -18,13 +16,6 @@ public class Enemy : Shooter, IShootable
 
     public EnemyState myState;
 
-
-    public override void Start()
-    {
-        base.Start();
-        enemyAnimator = GetComponent<Animator>();
-        myRigidbody2D = GetComponent<Rigidbody2D>();
-    }
     public virtual void OnShat(Bullet b)
     {
 
@@ -69,16 +60,13 @@ public class Enemy : Shooter, IShootable
                 player.HandleDeath();
         }
         HandleCollisionAnimation();
-        
+
     }
 
     public virtual void HandleCollisionAnimation()
     {
-        Debug.Log("Handling?");
-        enemyAnimator.SetTrigger(CelebrateKey);
-        myRigidbody2D.bodyType = RigidbodyType2D.Static;
+
     }
 
 
-    private static readonly int CelebrateKey = Animator.StringToHash("Celebrate");
 }
