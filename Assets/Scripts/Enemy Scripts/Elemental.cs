@@ -38,7 +38,7 @@ public class Elemental : Enemy
     Rigidbody2D rb;
 
 
-    private void Awake()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -75,6 +75,7 @@ public class Elemental : Enemy
     public override void OnShat(Bullet b)
     {
 
+        base.OnShat(b);
         if (b.shotType == Bullet.ShotType.ICE_SHOT &&
             myState == EnemyState.Fire)
         {
@@ -174,7 +175,8 @@ public class Elemental : Enemy
         rb.gravityScale = 1;
         
         yield return new WaitForSeconds(deathTime);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
 

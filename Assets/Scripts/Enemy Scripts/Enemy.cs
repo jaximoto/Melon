@@ -5,7 +5,10 @@ public class Enemy : Shooter, IShootable
 {
     public float moveSpeed;
     public int health;
-    //shooter variables
+
+
+    public EnemyManager enemyManager;
+
 
     public enum EnemyState
     {
@@ -14,12 +17,34 @@ public class Enemy : Shooter, IShootable
         Default
     };
 
+
     public EnemyState myState;
+
+    
+    public override void Start()
+    {
+        Debug.Log($"OLD: {this.gameObject.transform.position}");
+        base.Start();
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        Debug.Log("Called find");
+
+        /*
+        if (enemyManager.enemyPositions == null)
+            enemyManager.enemyPositions = new();
+            */
+
+        enemyManager.enemyPositions[this.gameObject] = new Vector3(this.gameObject.transform.position.x,    
+                                                                    this.gameObject.transform.position.y,
+                                                                    0);
+    }
+
+
 
     public virtual void OnShat(Bullet b)
     {
-
+        enemyManager.HandleEnemyDeath(this.gameObject);
     }
+
 
     public virtual void EnemyBehaviour()
     {
