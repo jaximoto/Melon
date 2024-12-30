@@ -16,7 +16,7 @@ public class DeathCounter : MonoBehaviour
         //player = GameObject.Find("PlayerMovement").GetComponent<PlayerMovement>();
         player.Death += Increment;
         counter = 0;
-        text.text = "Deaths: 0";
+        text.text = "0";
     }
 
 
@@ -35,7 +35,7 @@ public class DeathCounter : MonoBehaviour
 
     void Render()
     {
-        text.text = $"Deaths: {counter}";
+        text.text = $"{counter}";
     }
 
 }
