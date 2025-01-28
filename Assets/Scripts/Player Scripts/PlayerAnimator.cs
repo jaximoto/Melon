@@ -36,11 +36,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Awake()
     {
-        _source = GetComponent<AudioSource>();
-        _source.volume = GlobalAudio.Instance.GlobalVolume;
-        shootSource.volume = GlobalAudio.Instance.GlobalVolume;
-        shootSource.time = 1.5f;
-        shootSource.clip = shoot;
+      
+       
         _player = GetComponentInParent<IPlayerController>();
         if (_player == null) Debug.Log("Player is null for anim");
     }
@@ -59,7 +56,7 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void OnShoot()
     {
-        shootSource.Play();
+        
     }
     public void OnDeath()
     {
@@ -129,7 +126,7 @@ public class PlayerAnimator : MonoBehaviour
     }
     private void OnJumped()
     {
-        _source.Play();
+        
         _anim.SetTrigger(JumpKey);
         _anim.ResetTrigger(GroundedKey);
         _anim.ResetTrigger(WalkKey);
