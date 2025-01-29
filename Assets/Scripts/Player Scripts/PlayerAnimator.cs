@@ -30,6 +30,8 @@ public class PlayerAnimator : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _sprite;
 
+    [SerializeField] private ParticleSystem _steamDust;
+
     private IPlayerController _player;
     private bool _grounded;
 
@@ -123,6 +125,7 @@ public class PlayerAnimator : MonoBehaviour
     {
 
         _anim.SetTrigger(WalkKey);
+        PlayParticle(_steamDust);
     }
     private void OnJumped()
     {
@@ -173,6 +176,10 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
     
+    public void PlayParticle(ParticleSystem particle)
+    {
+        particle.Play();
+    }
     
 
 
